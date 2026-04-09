@@ -77,17 +77,36 @@ ul{
   cursor: pointer;
 }
 
-.btn-light{
+.btn-light,
+.btn-dark {
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+.btn-light {
     background-color: white;
     color: #4F46E5;
     border: 2px solid #958FEF;
 }
 
-.btn-dark{
+.btn-light:hover {
+    background-color: #4F46E5;
+    color: white;
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.18);
+    transform: translateY(-2px);
+}
+
+.btn-dark {
     background-color: #4F46E5;
     color: #FFFFFF;
-    border: none;
     border: 2px solid #4F46E5;
+}
+
+.btn-dark:hover {
+    background-color: white;
+    color: #4F46E5;
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.18);
+    transform: translateY(-2px);
 }
 
 main{
@@ -505,6 +524,12 @@ main{
   text-decoration: none;
   font-weight: 400;
   font-size: 16px;
+}
+
+.footer-column a:hover{
+  color: #130E67;
+  transform: translateY(-2px);
+  transition: all 0.25s ease-in;
 }
 
 .footer-column span{

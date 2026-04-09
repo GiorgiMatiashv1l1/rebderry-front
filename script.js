@@ -69,14 +69,11 @@ const loginOverlay = document.getElementById("modalOverlay");
 
 // register modal
 
-  // const loginOverlay = document.getElementById("modalOverlay");
-  // const registerOverlay = document.getElementById("registerOverlay");
   const closeRegister = document.getElementById("closeRegister");
   const prevStepBtn = document.getElementById("prevStepBtn");
   const steps = document.querySelectorAll(".register-step");
   const progressLines = document.querySelectorAll(".progress-line");
 
-  // const goToRegister = document.getElementById("goToRegister");
   const openRegister = document.getElementById("openRegister");
 
   const nextStep1 = document.getElementById("nextStep1");
