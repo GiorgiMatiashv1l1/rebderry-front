@@ -314,6 +314,12 @@ main{
   align-items: center;
 }
 
+.rating span{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .card-content{
   width: 90%;
   margin: auto;
@@ -1148,4 +1154,132 @@ main{
   border-radius: 50%;
   object-fit: cover;
   display: block;
+}
+
+/* Sidebar Enrolled Courses */
+.right-sidebar {
+    position: fixed;
+    top: 0;
+    right: -30%;
+    width: 30%;
+    height: 100vh;
+    background: #F5F5F5;
+    box-shadow: -8px 0 30px rgba(0, 0, 0, 0.12);
+    transition: right 0.35s ease;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #e5e5e5;
+}
+
+.right-sidebar.active {
+    right: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 20px;
+    border-bottom: 1px solid #e5e5e5;
+    background: white;
+}
+
+.sidebar-header h2 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.sidebar-header button {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #333;
+}
+
+.sidebar-content {
+    padding: 20px;
+    overflow-y: auto;
+    flex: 1;
+    gap: 80px;
+}
+
+.course-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.25);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Empty state sidebar  */
+
+.empty-state {
+    min-height: calc(100vh - 110px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.empty-icon {
+    color: #CFCFD4;
+    margin-bottom: 18px;
+}
+
+.empty-state h3 {
+    font-size: 28px;
+    line-height: 1.15;
+    font-weight: 700;
+    color: #2F2FA8;
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #5E5E6B;
+    margin-bottom: 18px;
+}
+
+.btn-dark {
+    background-color: #4F46E5;
+    color: #FFFFFF;
+    border: 2px solid #4F46E5;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.btn-dark:hover {
+    background-color: white;
+    color: #4F46E5;
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.18);
+    transform: translateY(-2px);
 }

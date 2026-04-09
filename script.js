@@ -234,3 +234,41 @@ window.addEventListener("load", () => {
       bar.style.width = percent + "%";
     });
   });
+
+
+
+// Sidebar
+
+const openSidebar = document.getElementById("openSidebar");
+const closeSidebar = document.getElementById("closeSidebar");
+const rightSidebar = document.getElementById("rightSidebar");
+const sidebarOverlay = document.getElementById("sidebarOverlay");
+
+openSidebar.addEventListener("click", (e) => {
+    e.preventDefault();
+    rightSidebar.classList.add("active");
+    sidebarOverlay.classList.add("active");
+});
+
+closeSidebar.addEventListener("click", () => {
+    rightSidebar.classList.remove("active");
+    sidebarOverlay.classList.remove("active");
+});
+
+sidebarOverlay.addEventListener("click", () => {
+    rightSidebar.classList.remove("active");
+    sidebarOverlay.classList.remove("active");
+});
+
+
+
+// Sidebar empty state
+const emptyState = document.getElementById("emptyState");
+
+function showEmptyState() {
+    emptyState.style.display = "flex";
+}
+
+function hideEmptyState() {
+    emptyState.style.display = "none";
+}

@@ -24,7 +24,7 @@
                         </li>
                     </a>
                     
-                    <a href="#">
+                    <a href="#" id="openSidebar">
                         <li class="nav-link">
                             <span class="nav-icon"><img src="./assets/Nav_icon_2.png" alt="Nav_icon_1"></span>
                             <span>Enrolled Courses</span>
@@ -218,6 +218,132 @@
             </form>
         </div>
     </div>
+
+    <!-- Sidebar - Enrolled Courses -->
+     <div class="sidebar-overlay" id="sidebarOverlay"></div>
+     <aside class="right-sidebar" id="rightSidebar">
+        <div class="sidebar-header">
+            <h2>Enrolled Courses</h2>
+            <button id="closeSidebar">&times;</button>
+        </div>
+
+        <div class="sidebar-content">
+            <div class="card-small">
+                    <div class="small-card-top">
+                        <div class="card-small-img">
+                            <img src="./assets/15d2add9f18fc16388ceb80abb81b0a2e0f7949b.png" alt="">
+                        </div>
+                        <div class="small-card-content">
+                            <div class="rating">
+                                <p>Instructor Sarah Johnson</p>
+                                <span><img src="./assets/star_icon.png" alt="">4.9</span>
+                            </div>
+
+                            <div class="card-title-div">
+                                <h3 class="card-title">Advanced React & TypeScript Development</h3>
+                            </div>                            
+                        </div>
+                    </div>
+                    
+                    <div class="card-progress-wrapper">
+                        <div class="progress">
+                            <p><span id="progressText">65%</span> Complete</p>
+                            <div class="progress-track">
+                                <div class="progress-bar" data-progress="65"></div>
+                            </div>
+                        </div>
+                        <button class="btn btn-light">View</button>
+                    </div>
+                </div>
+
+                <div class="card-small">
+                    <div class="small-card-top">
+                        <div class="card-small-img">
+                            <img src="./assets/15d2add9f18fc16388ceb80abb81b0a2e0f7949b.png" alt="">
+                        </div>
+                        <div class="small-card-content">
+                            <div class="rating">
+                                <p>Lecturer Marilyn Mango</p>
+                                <span><img src="./assets/star_icon.png" alt="">4.9</span>
+                            </div>
+
+                            <div class="card-title-div">
+                                <h3 class="card-title">Advanced React & TypeScript Development</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-progress-wrapper">
+                        <div class="progress">
+                            <p><span id="progressText">65%</span> Complete</p>
+                            <div class="progress-track">
+                                <div class="progress-bar" data-progress="65"></div>
+                            </div>
+                        </div>
+                        <button class="btn btn-light">View</button>
+                    </div>
+                </div>
+
+                <div class="card-small">
+                    <div class="small-card-top">
+                        <div class="card-small-img">
+                            <img src="./assets/15d2add9f18fc16388ceb80abb81b0a2e0f7949b.png" alt="">
+                        </div>
+                        <div class="small-card-content">
+                            <div class="rating">
+                                <p>Lecturer Marilyn Mango</p>
+                                <span><img src="./assets/star_icon.png" alt="">4.9</span>
+                            </div>
+
+                            <div class="card-title-div">
+                                <h3 class="card-title">Advanced React & TypeScript Development</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-progress-wrapper">
+                        <div class="progress">
+                            <p><span id="progressText">65%</span> Complete</p>
+                            <div class="progress-track">
+                                <div class="progress-bar" data-progress="65"></div>
+                            </div>
+                        </div>
+                        <button class="btn btn-light">View</button>
+                    </div>
+                </div>
+        </div>
+
+
+        <!-- Empty state -->
+      <div class="empty-state" id="emptyState">
+            <div class="empty-icon">
+                <svg
+                    width="72"
+                    height="72"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    >
+                    <path d="M21 8a2 2 0 0 0-1.1-1.79l-7-3.5a2 2 0 0 0-1.8 0l-7 3.5A2 2 0 0 0 3 8"></path>
+                    <path d="M3.3 7 12 11.5 20.7 7"></path>
+                    <path d="M12 22V11.5"></path>
+                    <path d="M20 12.5V16a2 2 0 0 1-1.1 1.79l-6 3a2 2 0 0 1-1.8 0l-6-3A2 2 0 0 1 4 16v-3.5"></path>
+                </svg>
+            </div>
+
+            <h3>No Enrolled Courses Yet</h3>
+
+            <p>
+                Your learning journey starts here!<br>
+                Browse courses to get started.
+            </p>
+
+            <a href="#" class="btn-dark">Browse Courses</a>
+        </div>
+     </aside>
 
     <main>
 
