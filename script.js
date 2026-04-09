@@ -1,3 +1,5 @@
+// Slider
+
 let current = 0;
 const total = 3;
 const slidesEl = document.getElementById('slides');
@@ -12,6 +14,8 @@ function next() { goTo(current + 1); }
 function prev() { goTo(current - 1); }
 
 setInterval(() => next(), 15000);
+
+
 
 
 // sign in modal
@@ -39,6 +43,8 @@ modalOverlay.addEventListener("click", (e) => {
 togglePassword.addEventListener("click", () => {
   password.type = password.type === "password" ? "text" : "password";
 });
+
+
 
 
 // register modal
@@ -138,4 +144,26 @@ const openRegister = document.getElementById("openRegister");
 
 openRegister.addEventListener("click", () => {
   openRegisterModal();
+});
+
+
+
+//Profile modal
+
+const openProfileModal = document.getElementById("openProfileModal");
+const profileOverlay = document.getElementById("profileOverlay");
+const closeProfileModal = document.getElementById("closeProfileModal");
+
+openProfileModal.addEventListener("click", () => {
+  profileOverlay.classList.add("active");
+});
+
+closeProfileModal.addEventListener("click", () => {
+  profileOverlay.classList.remove("active");
+});
+
+profileOverlay.addEventListener("click", (e) => {
+  if (e.target === profileOverlay) {
+    profileOverlay.classList.remove("active");
+  }
 });

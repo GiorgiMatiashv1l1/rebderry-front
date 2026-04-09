@@ -38,7 +38,9 @@
                 </div>
 
                 <div class="nav-authed">
-                    <img src="./assets/Avatar.png" alt="">
+                    <button class="profile-icon-btn" id="openProfileModal">
+                        <img src="./assets/Avatar.png" alt="">
+                    </button>
                 </div>
             </div>
         </nav>
@@ -149,6 +151,71 @@
             <div class="register-login-text">
                 Already have an account? <a href="#">Log In</a>
             </div>
+        </div>
+    </div>
+
+    <!--Profile Modal-->
+    <div class="profile-overlay" id="profileOverlay">
+        <div class="profile-modal">
+            <button class="profile-close" id="closeProfileModal">&times;</button>
+
+            <h2>Profile</h2>
+
+            <div class="profile-header">
+                <img src="https://via.placeholder.com/56" alt="Avatar" class="profile-avatar">
+                <div class="profile-user-info">
+                    <h3>Username</h3>
+                    <p><span class="green-dot"></span> Profile is Complete</p>
+                </div>
+            </div>
+
+            <form>
+            <div class="profile-form-group">
+                <label for="fullName">Full Name</label>
+                <div class="input-icon-wrap">
+                    <input type="text" id="fullName" placeholder="Username">
+                    <span class="input-icon">✎</span>
+                </div>
+            </div>
+
+            <div class="profile-form-group">
+                <label for="profileEmail">Email</label>
+                <div class="input-icon-wrap">
+                    <input type="email" id="profileEmail" placeholder="Email@gmail.com">
+                    <span class="input-icon">✓</span>
+                </div>
+            </div>
+
+            <div class="profile-row">
+                <div class="profile-form-group">
+                <label for="mobileNumber">Mobile Number</label>
+                    <div class="input-icon-wrap">
+                        <input type="text" id="mobileNumber" placeholder="+995 599209820">
+                        <span class="input-icon">✓</span>
+                    </div>
+                </div>
+
+                <div class="profile-form-group small-field">
+                    <label for="age">Age</label>
+                    <div class="input-icon-wrap">
+                        <input type="text" id="age" placeholder="29">
+                        <span class="input-icon">⌄</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-form-group">
+                <label>Upload Avatar</label>
+                <label for="profileAvatarUpload" class="profile-upload-box">
+                <div class="upload-arrow">⇪</div>
+                <div>Drag and drop or <span>Upload file</span></div>
+                <small>JPG, PNG or WebP</small>
+                </label>
+                <input type="file" id="profileAvatarUpload" hidden accept=".jpg,.jpeg,.png,.webp">
+            </div>
+
+            <button type="submit" class="profile-update-btn">Update Profile</button>
+            </form>
         </div>
     </div>
 
