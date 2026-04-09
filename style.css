@@ -22,7 +22,7 @@ a{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 80%;
+    width: 84%;
     margin: auto;
 }
 
@@ -91,8 +91,12 @@ ul{
 }
 
 main{
-    width: 80%;
+    width: 84%;
     margin: auto;
+}
+
+.hero-slider{
+  padding-bottom: 100px;
 }
 
 .slider-wrap {
@@ -244,13 +248,15 @@ main{
 
 
 .course-cards-section{
-  margin-top: 100px;
   padding-bottom: 100px;
 }
 
 .cards-wrapper{
+  overflow: hidden;
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  gap: 20px;
 }
 
 .component-titles{
@@ -345,8 +351,13 @@ main{
 
 /* ─── Continue Learning Section ─── */
 
+.continue-learning-section{
+  display: flex;
+  flex-direction: column;
+}
+
 .card-small{
-  width: 506px;
+  width: 490px;
   height: 219px;
   background-color: white;
   border-radius: 12px;
@@ -380,6 +391,7 @@ main{
   margin: auto;
   display: flex;
   justify-content: space-between;
+  gap: 10px;
 }
 
 .card-progress-wrapper p{
@@ -394,3 +406,497 @@ main{
   border-radius: 30px;
 }
 
+
+/* ─── Footer ─── */
+
+.footer-wrapper{
+  display: flex;
+  justify-content: space-between;
+  width: 84%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-footer{
+  padding-top: 80px;
+  margin-top: 200px;
+  padding-bottom: 10px;
+  width: 100%;
+  border-top: 1px solid #D1D1D1;
+}
+
+.footer-left{
+  flex: 0 0 300px;
+  min-width: 0;
+}
+
+.logo-footer{
+  background-color: #4F46E5;
+  width: 19px;
+  height: 19px;
+  padding: 16px 17px 17px 16px;
+  border-radius: 10px;
+}
+
+.footer-logo-div{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo-div h2{
+  color: #130E67;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.footer-text{
+  color: #130E67;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.footer-socials{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 22px;
+  padding-top: 20px;
+}
+
+/* ─── Footer Right Side ─── */
+
+.footer-right{
+  flex: 0 0 700px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.footer-column{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.footer-column a{
+  color: #666666;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.footer-column span{
+  display: flex;
+  align-items: center;
+  color:#666666;
+  gap: 6px;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.footer-column-title{
+  color: #130E67;
+  font-size: 20px;
+  font-weight: 600px;
+}
+
+.footer-copyright{
+  color: #666666;
+  padding-top: 80px;
+  display: flex;
+  justify-content: space-between;
+  width: 84%;
+  margin: auto;
+}
+
+.copyright-right{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.copyright-right a{
+  text-decoration: none;
+  color: #4F46E5;
+}
+
+/* Sign in popup */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.overlay.active {
+  display: flex;
+}
+
+.modal {
+  background: #fff;
+  width: 420px;
+  max-width: 90%;
+  border-radius: 14px;
+  padding: 30px 28px;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 28px;
+  color: #888;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+.modal h2 {
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 8px;
+  color: #111;
+  font-weight: 700;
+}
+
+.modal p {
+  text-align: center;
+  color: #777;
+  margin-bottom: 28px;
+  font-size: 16px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: #333;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 90%;
+  padding: 14px;
+  border: 1px solid #d4d4d4;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: #5b4df5;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+
+.eye-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #777;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: #5546f2;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: 0.2s;
+}
+
+.login-btn:hover {
+  background: #4537db;
+}
+
+.divider {
+  text-align: center;
+  margin: 20px 0 14px;
+  color: #aaa;
+  position: relative;
+  font-size: 14px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 42%;
+  height: 1px;
+  background: #e5e5e5;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+.bottom-text {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+.bottom-text a {
+  color: #111;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* -- registration -- */
+
+.register-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.28);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.register-overlay.active {
+  display: flex;
+}
+
+.register-modal {
+  position: relative;
+  width: 380px;
+  max-width: 92%;
+  background: #fff;
+  border-radius: 14px;
+  padding: 28px 26px 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+}
+
+.register-close,
+.register-back {
+  position: absolute;
+  top: 14px;
+  border: none;
+  background: none;
+  font-size: 28px;
+  color: #888;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.register-close {
+  right: 16px;
+}
+
+.register-back {
+  left: 16px;
+  display: none;
+}
+
+.register-close:hover,
+.register-back:hover {
+  color: #333;
+}
+
+.register-modal h2 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #1c1c1c;
+  margin-bottom: 8px;
+  margin-top: 18px;
+}
+
+.register-modal p {
+  text-align: center;
+  color: #777;
+  font-size: 15px;
+  margin-bottom: 18px;
+}
+
+.register-progress {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.progress-line {
+  flex: 1;
+  height: 6px;
+  background: #e4e1ff;
+  border-radius: 999px;
+}
+
+.progress-line.active {
+  background: #5647f5;
+}
+
+.register-step {
+  display: none;
+}
+
+.register-step.active {
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="text"] {
+  width: 90%;
+  height: 46px;
+  padding: 0 14px;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: #5647f5;
+}
+
+.password-box {
+  position: relative;
+}
+
+.password-box input {
+  padding-right: 46px;
+}
+
+.eye-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  color: #888;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.register-btn {
+  width: 100%;
+  height: 48px;
+  border: none;
+  border-radius: 8px;
+  background: #5647f5;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.register-btn:hover {
+  background: #4637e6;
+}
+
+.upload-box {
+  border: 1.5px solid #d8d8d8;
+  border-radius: 10px;
+  min-height: 108px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #666;
+  text-align: center;
+  cursor: pointer;
+  padding: 16px;
+}
+
+.upload-box span {
+  color: #5647f5;
+  text-decoration: underline;
+}
+
+.upload-box small {
+  display: block;
+  margin-top: 6px;
+  color: #9a9a9a;
+}
+
+.upload-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+  color: #999;
+}
+
+.register-divider {
+  text-align: center;
+  margin: 18px 0 12px;
+  color: #aaa;
+  position: relative;
+  font-size: 14px;
+}
+
+.register-divider::before,
+.register-divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 43%;
+  height: 1px;
+  background: #e5e5e5;
+}
+
+.register-divider::before {
+  left: 0;
+}
+
+.register-divider::after {
+  right: 0;
+}
+
+.register-login-text {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+.register-login-text a {
+  color: #222;
+  font-weight: 600;
+  text-decoration: underline;
+}
