@@ -44,107 +44,166 @@ togglePassword.addEventListener("click", () => {
   password.type = password.type === "password" ? "text" : "password";
 });
 
+const loginOverlay = document.getElementById("modalOverlay");
+  const registerOverlay = document.getElementById("registerOverlay");
 
+  const goToRegister = document.getElementById("goToRegister");
+  const goToLogin = document.getElementById("goToLogin");
+
+  if (goToRegister) {
+    goToRegister.addEventListener("click", (e) => {
+      e.preventDefault();
+      loginOverlay.classList.remove("active");
+      registerOverlay.classList.add("active");
+    });
+  }
+
+  if (goToLogin) {
+    goToLogin.addEventListener("click", (e) => {
+      e.preventDefault();
+      registerOverlay.classList.remove("active");
+      loginOverlay.classList.add("active");
+    });
+  }
 
 
 // register modal
 
-const registerOverlay = document.getElementById("registerOverlay");
-const closeRegister = document.getElementById("closeRegister");
-const prevStepBtn = document.getElementById("prevStepBtn");
-const steps = document.querySelectorAll(".register-step");
-const progressLines = document.querySelectorAll(".progress-line");
+  // const loginOverlay = document.getElementById("modalOverlay");
+  // const registerOverlay = document.getElementById("registerOverlay");
+  const closeRegister = document.getElementById("closeRegister");
+  const prevStepBtn = document.getElementById("prevStepBtn");
+  const steps = document.querySelectorAll(".register-step");
+  const progressLines = document.querySelectorAll(".progress-line");
 
-const nextStep1 = document.getElementById("nextStep1");
-const nextStep2 = document.getElementById("nextStep2");
-const registerForm = document.getElementById("registerForm");
+  // const goToRegister = document.getElementById("goToRegister");
+  const openRegister = document.getElementById("openRegister");
 
-const regEmail = document.getElementById("regEmail");
-const regPassword = document.getElementById("regPassword");
-const regConfirmPassword = document.getElementById("regConfirmPassword");
+  const nextStep1 = document.getElementById("nextStep1");
+  const nextStep2 = document.getElementById("nextStep2");
+  const registerForm = document.getElementById("registerForm");
 
-let currentStep = 1;
+  const regEmail = document.getElementById("regEmail");
+  const regPassword = document.getElementById("regPassword");
+  const regConfirmPassword = document.getElementById("regConfirmPassword");
 
-function showStep(step) {
-  steps.forEach((item, index) => {
-    item.classList.toggle("active", index + 1 === step);
-  });
+  let currentStep = 1;
 
-  progressLines.forEach((line, index) => {
-    line.classList.toggle("active", index < step);
-  });
+  function showStep(step) {
+    steps.forEach((item, index) => {
+      item.classList.toggle("active", index + 1 === step);
+    });
 
-  prevStepBtn.style.display = step > 1 ? "block" : "none";
-  currentStep = step;
+    progressLines.forEach((line, index) => {
+      line.classList.toggle("active", index < step);
+    });
+
+    if (prevStepBtn) {
+      prevStepBtn.style.display = step > 1 ? "block" : "none";
+    }
+
+    currentStep = step;
   }
 
-function openRegisterModal() {
-  registerOverlay.classList.add("active");
+  function openRegisterModal() {
+    if (!registerOverlay) return;
+    registerOverlay.classList.add("active");
+    showStep(1);
+  }
+
+  function closeRegisterModal() {
+    if (!registerOverlay) return;
+    registerOverlay.classList.remove("active");
+  }
+
+  if (goToRegister) {
+    goToRegister.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      if (loginOverlay) {
+        loginOverlay.classList.remove("active");
+      }
+
+      openRegisterModal();
+    });
+  }
+
+  if (openRegister) {
+    openRegister.addEventListener("click", () => {
+      openRegisterModal();
+    });
+  }
+
+  if (nextStep1) {
+    nextStep1.addEventListener("click", () => {
+      if (!regEmail || regEmail.value.trim() === "") {
+        if (regEmail) regEmail.focus();
+        return;
+      }
+
+      showStep(2);
+    });
+  }
+
+  if (nextStep2) {
+    nextStep2.addEventListener("click", () => {
+      if (!regPassword || regPassword.value.trim() === "") {
+        if (regPassword) regPassword.focus();
+        return;
+      }
+
+      if (!regConfirmPassword || regConfirmPassword.value.trim() === "") {
+        if (regConfirmPassword) regConfirmPassword.focus();
+        return;
+      }
+
+      if (regPassword.value !== regConfirmPassword.value) {
+        alert("Passwords do not match.");
+        return;
+      }
+
+      showStep(3);
+    });
+  }
+
+  if (prevStepBtn) {
+    prevStepBtn.addEventListener("click", () => {
+      if (currentStep > 1) {
+        showStep(currentStep - 1);
+      }
+    });
+  }
+
+  if (closeRegister) {
+    closeRegister.addEventListener("click", closeRegisterModal);
+  }
+
+  if (registerOverlay) {
+    registerOverlay.addEventListener("click", (e) => {
+      if (e.target === registerOverlay) {
+        closeRegisterModal();
+      }
+    });
+  }
+
+  document.querySelectorAll(".eye-toggle").forEach((button) => {
+    button.addEventListener("click", () => {
+      const targetInput = document.getElementById(button.dataset.target);
+      if (!targetInput) return;
+
+      targetInput.type =
+        targetInput.type === "password" ? "text" : "password";
+    });
+  });
+
+  if (registerForm) {
+    registerForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Registration submitted!");
+    });
+  }
+
   showStep(1);
-}
-
-function closeRegisterModal() {
-  registerOverlay.classList.remove("active");
-}
-
-nextStep1.addEventListener("click", () => {
-  if (regEmail.value.trim() === "") {
-    regEmail.focus();
-    return;
-  }
-  showStep(2);
-});
-
-nextStep2.addEventListener("click", () => {
-  if (regPassword.value.trim() === "") {
-    regPassword.focus();
-    return;
-  }
-
-  if (regConfirmPassword.value.trim() === "") {
-    regConfirmPassword.focus();
-    return;
-  }
-
-  if (regPassword.value !== regConfirmPassword.value) {
-    alert("Passwords do not match.");
-    return;
-  }
-
-  showStep(3);
-});
-
-prevStepBtn.addEventListener("click", () => {
-  if (currentStep > 1) {
-    showStep(currentStep - 1);
-  }
-});
-
-closeRegister.addEventListener("click", closeRegisterModal);
-
-registerOverlay.addEventListener("click", (e) => {
-  if (e.target === registerOverlay) {
-    closeRegisterModal();
-  }
-});
-
-document.querySelectorAll(".eye-toggle").forEach(button => {
-  button.addEventListener("click", () => {
-    const targetInput = document.getElementById(button.dataset.target);
-    targetInput.type = targetInput.type === "password" ? "text" : "password";
-  });
-});
-
-registerForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  alert("Registration submitted!");
-});
-
-const openRegister = document.getElementById("openRegister");
-
-openRegister.addEventListener("click", () => {
-  openRegisterModal();
-});
 
 
 
@@ -167,3 +226,14 @@ profileOverlay.addEventListener("click", (e) => {
     profileOverlay.classList.remove("active");
   }
 });
+
+
+//progress bar
+window.addEventListener("load", () => {
+    const progressBars = document.querySelectorAll(".progress-bar");
+
+    progressBars.forEach((bar) => {
+      const percent = bar.getAttribute("data-progress");
+      bar.style.width = percent + "%";
+    });
+  });
