@@ -1,88 +1,103 @@
-// Slider
-
-let current = 0;
-const total = 3;
-const slidesEl = document.getElementById('slides');
-const dotsEl = document.getElementById('dots').children;
-
-function goTo(n) {
-  current = (n + total) % total;
-  slidesEl.style.transform = `translateX(-${current * 100}%)`;
-  Array.from(dotsEl).forEach((d, i) => d.classList.toggle('active', i === current));
-}
-function next() { goTo(current + 1); }
-function prev() { goTo(current - 1); }
-
-setInterval(() => next(), 15000);
-
-
-
-
-// sign in modal
-
-const openModal = document.getElementById("openModal");
-  openModal.addEventListener("click", () => {
-    modalOverlay.classList.add("active");
-  });
-
-const modalOverlay = document.getElementById("modalOverlay");
-const closeModal = document.getElementById("closeModal");
-const togglePassword = document.getElementById("togglePassword");
-const password = document.getElementById("password");
-
-closeModal.addEventListener("click", () => {
-  modalOverlay.classList.remove("active");
+document.addEventListener("DOMContentLoaded", () => {
+  initSlider();
+  initLoginModal();
+  initRegisterModal();
+  initProfileModal();
+  initProgressBars();
+  initSidebar();
+  initEmptyState();
 });
 
-modalOverlay.addEventListener("click", (e) => {
-  if (e.target === modalOverlay) {
-    modalOverlay.classList.remove("active");
+function initSlider() {
+  const slidesEl = document.getElementById("slides");
+  const dotsWrap = document.getElementById("dots");
+
+  if (!slidesEl || !dotsWrap) return;
+
+  const dotsEl = dotsWrap.children;
+  let current = 0;
+  const total = dotsEl.length || 3;
+
+  function goTo(n) {
+    current = (n + total) % total;
+    slidesEl.style.transform = `translateX(-${current * 100}%)`;
+    Array.from(dotsEl).forEach((d, i) => {
+      d.classList.toggle("active", i === current);
+    });
   }
-});
 
-togglePassword.addEventListener("click", () => {
-  password.type = password.type === "password" ? "text" : "password";
-});
+  function next() {
+    goTo(current + 1);
+  }
 
-const loginOverlay = document.getElementById("modalOverlay");
+  window.next = next;
+  window.prev = () => goTo(current - 1);
+  window.goTo = goTo;
+
+  setInterval(next, 15000);
+}
+
+function initLoginModal() {
+  const openModal = document.getElementById("openModal");
+  const modalOverlay = document.getElementById("modalOverlay");
+  const closeModal = document.getElementById("closeModal");
+  const togglePassword = document.getElementById("togglePassword");
+  const password = document.getElementById("password");
+  const goToRegister = document.getElementById("goToRegister");
   const registerOverlay = document.getElementById("registerOverlay");
 
-  const goToRegister = document.getElementById("goToRegister");
-  const goToLogin = document.getElementById("goToLogin");
+  if (openModal && modalOverlay) {
+    openModal.addEventListener("click", () => {
+      modalOverlay.classList.add("active");
+    });
+  }
 
-  if (goToRegister) {
+  if (closeModal && modalOverlay) {
+    closeModal.addEventListener("click", () => {
+      modalOverlay.classList.remove("active");
+    });
+  }
+
+  if (modalOverlay) {
+    modalOverlay.addEventListener("click", (e) => {
+      if (e.target === modalOverlay) {
+        modalOverlay.classList.remove("active");
+      }
+    });
+  }
+
+  if (togglePassword && password) {
+    togglePassword.addEventListener("click", () => {
+      password.type = password.type === "password" ? "text" : "password";
+    });
+  }
+
+  if (goToRegister && modalOverlay && registerOverlay) {
     goToRegister.addEventListener("click", (e) => {
       e.preventDefault();
-      loginOverlay.classList.remove("active");
+      modalOverlay.classList.remove("active");
       registerOverlay.classList.add("active");
     });
   }
+}
 
-  if (goToLogin) {
-    goToLogin.addEventListener("click", (e) => {
-      e.preventDefault();
-      registerOverlay.classList.remove("active");
-      loginOverlay.classList.add("active");
-    });
-  }
-
-
-// register modal
-
+function initRegisterModal() {
+  const loginOverlay = document.getElementById("modalOverlay");
+  const registerOverlay = document.getElementById("registerOverlay");
   const closeRegister = document.getElementById("closeRegister");
   const prevStepBtn = document.getElementById("prevStepBtn");
   const steps = document.querySelectorAll(".register-step");
   const progressLines = document.querySelectorAll(".progress-line");
-
   const openRegister = document.getElementById("openRegister");
-
   const nextStep1 = document.getElementById("nextStep1");
   const nextStep2 = document.getElementById("nextStep2");
   const registerForm = document.getElementById("registerForm");
-
   const regEmail = document.getElementById("regEmail");
   const regPassword = document.getElementById("regPassword");
   const regConfirmPassword = document.getElementById("regConfirmPassword");
+  const goToLogin = document.getElementById("goToLogin");
+
+  if (!registerOverlay) return;
 
   let currentStep = 1;
 
@@ -103,41 +118,34 @@ const loginOverlay = document.getElementById("modalOverlay");
   }
 
   function openRegisterModal() {
-    if (!registerOverlay) return;
     registerOverlay.classList.add("active");
     showStep(1);
   }
 
   function closeRegisterModal() {
-    if (!registerOverlay) return;
     registerOverlay.classList.remove("active");
   }
 
-  if (goToRegister) {
-    goToRegister.addEventListener("click", (e) => {
-      e.preventDefault();
-
-      if (loginOverlay) {
-        loginOverlay.classList.remove("active");
-      }
-
-      openRegisterModal();
-    });
-  }
-
   if (openRegister) {
-    openRegister.addEventListener("click", () => {
-      openRegisterModal();
-    });
+    openRegister.addEventListener("click", openRegisterModal);
   }
+
+  if (closeRegister) {
+    closeRegister.addEventListener("click", closeRegisterModal);
+  }
+
+  registerOverlay.addEventListener("click", (e) => {
+    if (e.target === registerOverlay) {
+      closeRegisterModal();
+    }
+  });
 
   if (nextStep1) {
     nextStep1.addEventListener("click", () => {
       if (!regEmail || regEmail.value.trim() === "") {
-        if (regEmail) regEmail.focus();
+        regEmail?.focus();
         return;
       }
-
       showStep(2);
     });
   }
@@ -145,12 +153,12 @@ const loginOverlay = document.getElementById("modalOverlay");
   if (nextStep2) {
     nextStep2.addEventListener("click", () => {
       if (!regPassword || regPassword.value.trim() === "") {
-        if (regPassword) regPassword.focus();
+        regPassword?.focus();
         return;
       }
 
       if (!regConfirmPassword || regConfirmPassword.value.trim() === "") {
-        if (regConfirmPassword) regConfirmPassword.focus();
+        regConfirmPassword?.focus();
         return;
       }
 
@@ -171,25 +179,11 @@ const loginOverlay = document.getElementById("modalOverlay");
     });
   }
 
-  if (closeRegister) {
-    closeRegister.addEventListener("click", closeRegisterModal);
-  }
-
-  if (registerOverlay) {
-    registerOverlay.addEventListener("click", (e) => {
-      if (e.target === registerOverlay) {
-        closeRegisterModal();
-      }
-    });
-  }
-
   document.querySelectorAll(".eye-toggle").forEach((button) => {
     button.addEventListener("click", () => {
       const targetInput = document.getElementById(button.dataset.target);
       if (!targetInput) return;
-
-      targetInput.type =
-        targetInput.type === "password" ? "text" : "password";
+      targetInput.type = targetInput.type === "password" ? "text" : "password";
     });
   });
 
@@ -200,75 +194,93 @@ const loginOverlay = document.getElementById("modalOverlay");
     });
   }
 
-  showStep(1);
-
-
-
-//Profile modal
-
-const openProfileModal = document.getElementById("openProfileModal");
-const profileOverlay = document.getElementById("profileOverlay");
-const closeProfileModal = document.getElementById("closeProfileModal");
-
-openProfileModal.addEventListener("click", () => {
-  profileOverlay.classList.add("active");
-});
-
-closeProfileModal.addEventListener("click", () => {
-  profileOverlay.classList.remove("active");
-});
-
-profileOverlay.addEventListener("click", (e) => {
-  if (e.target === profileOverlay) {
-    profileOverlay.classList.remove("active");
+  if (goToLogin && loginOverlay) {
+    goToLogin.addEventListener("click", (e) => {
+      e.preventDefault();
+      closeRegisterModal();
+      loginOverlay.classList.add("active");
+    });
   }
-});
 
+  showStep(1);
+}
 
-//progress bar
-window.addEventListener("load", () => {
-    const progressBars = document.querySelectorAll(".progress-bar");
+function initProfileModal() {
+  const openProfileModal = document.getElementById("openProfileModal");
+  const profileOverlay = document.getElementById("profileOverlay");
+  const closeProfileModal = document.getElementById("closeProfileModal");
 
+  if (openProfileModal && profileOverlay) {
+    openProfileModal.addEventListener("click", () => {
+      profileOverlay.classList.add("active");
+    });
+  }
+
+  if (closeProfileModal && profileOverlay) {
+    closeProfileModal.addEventListener("click", () => {
+      profileOverlay.classList.remove("active");
+    });
+  }
+
+  if (profileOverlay) {
+    profileOverlay.addEventListener("click", (e) => {
+      if (e.target === profileOverlay) {
+        profileOverlay.classList.remove("active");
+      }
+    });
+  }
+}
+
+function initProgressBars() {
+  const progressBars = document.querySelectorAll(".progress-bar");
+  if (!progressBars.length) return;
+
+  window.addEventListener("load", () => {
     progressBars.forEach((bar) => {
-      const percent = bar.getAttribute("data-progress");
+      const percent = bar.getAttribute("data-progress") || "0";
       bar.style.width = percent + "%";
     });
   });
-
-
-
-// Sidebar
-
-const openSidebar = document.getElementById("openSidebar");
-const closeSidebar = document.getElementById("closeSidebar");
-const rightSidebar = document.getElementById("rightSidebar");
-const sidebarOverlay = document.getElementById("sidebarOverlay");
-
-openSidebar.addEventListener("click", (e) => {
-    e.preventDefault();
-    rightSidebar.classList.add("active");
-    sidebarOverlay.classList.add("active");
-});
-
-closeSidebar.addEventListener("click", () => {
-    rightSidebar.classList.remove("active");
-    sidebarOverlay.classList.remove("active");
-});
-
-sidebarOverlay.addEventListener("click", () => {
-    rightSidebar.classList.remove("active");
-    sidebarOverlay.classList.remove("active");
-});
-
-
-
-// Sidebar empty state
-const emptyState = document.getElementById("emptyState");
-
-function showEmptyState() {
-    emptyState.style.display = "flex";
 }
 
-function hideEmptyState() {
+function initSidebar() {
+  const openSidebar = document.getElementById("openSidebar");
+  const closeSidebar = document.getElementById("closeSidebar");
+  const rightSidebar = document.getElementById("rightSidebar");
+  const sidebarOverlay = document.getElementById("sidebarOverlay");
+
+  if (openSidebar && rightSidebar && sidebarOverlay) {
+    openSidebar.addEventListener("click", (e) => {
+      e.preventDefault();
+      rightSidebar.classList.add("active");
+      sidebarOverlay.classList.add("active");
+    });
+  }
+
+  if (closeSidebar && rightSidebar && sidebarOverlay) {
+    closeSidebar.addEventListener("click", () => {
+      rightSidebar.classList.remove("active");
+      sidebarOverlay.classList.remove("active");
+    });
+  }
+
+  if (sidebarOverlay && rightSidebar) {
+    sidebarOverlay.addEventListener("click", () => {
+      rightSidebar.classList.remove("active");
+      sidebarOverlay.classList.remove("active");
+    });
+  }
+}
+
+function initEmptyState() {
+  const emptyState = document.getElementById("emptyState");
+  if (!emptyState) return;
+
+  window.showEmptyState = function () {
+    emptyState.style.display = "flex";
+  };
+
+  window.hideEmptyState = function () {
     emptyState.style.display = "none";
+  };
 }
