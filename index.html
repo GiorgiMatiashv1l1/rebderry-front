@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="page-header">
+        <nav class="navbar">
+            <a href="#">
+                <div class="logo">
+                    <img src="./assets/logo.png" alt="Logo">
+                </div>
+            </a>
+            
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <a href="#">
+                        <li class="nav-link">
+                            <span class="nav-icon"><img src="./assets/Nav_icon_1.png" alt="Nav_icon_1"></span>
+                            <span>Browse Courses</span>
+                        </li>
+                    </a>
+                    
+                    <a href="#">
+                        <li class="nav-link">
+                            <span class="nav-icon"><img src="./assets/Nav_icon_2.png" alt="Nav_icon_1"></span>
+                            <span>Enrolled Courses</span>
+                        </li>
+                    </a>
+                </ul>
+
+                <div class="nav-auth">
+                    <button class="btn btn-light">Log In</button>
+                    <button class="btn btn-dark">Sign Up</button>
+                </div>
+
+                <div class="nav-authed">
+                    <img src="./assets/Avatar.png" alt="">
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero-slider">
+            <div class="slider-wrap">
+                <div class="slides" id="slides">
+
+                    <div class="slide">
+                        <div class="slide-bg" style="background-image: url('assets/slider-pic_1.png');"></div>
+                        <div class="slide-overlay"></div>
+                        <div class="slide-content">
+                            <h1 class="slide-title">Start Learning something new today</h1>
+                            <p class="slide-subtitle">Explore a wide range of expert-led courses in design, development, business, and more. Find the skills you need to grow your career and learn at your own pace.</p>
+                            <button class="slide-btn">Browse Courses</button>
+                        </div>
+                    </div>
+
+                    <div class="slide">
+                        <div class="slide-bg" style="background-image: url('assets/slider-pic_1.png');"></div>
+                        <div class="slide-overlay"></div>
+                        <div class="slide-content">
+                            <h1 class="slide-title">Start Learning something new today</h1>
+                            <p class="slide-subtitle">Explore a wide range of expert-led courses in design, development, business, and more. Find the skills you need to grow your career and learn at your own pace.</p>
+                            <button class="slide-btn">Browse Courses</button>
+                        </div>
+                    </div>
+
+                    <div class="slide">
+                        <div class="slide-bg" style="background-image: url('assets/slider-pic_1.png');"></div>
+                        <div class="slide-overlay"></div>
+                        <div class="slide-content">
+                            <h1 class="slide-title">Start Learning something new today</h1>
+                            <p class="slide-subtitle">Explore a wide range of expert-led courses in design, development, business, and more. Find the skills you need to grow your career and learn at your own pace.</p>
+                            <button class="slide-btn">Browse Courses</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="slider-bottom">
+                    <div class="dots" id="dots">
+                        <div class="dot active" onclick="goTo(0)"></div>
+                        <div class="dot active" onclick="goTo(1)"></div>
+                        <div class="dot active" onclick="goTo(2)"></div>
+                    </div>
+                    <div class="arrows">
+                        <button class="arrow" onclick="prev()">&#8249;</button>
+                        <button class="arrow" onclick="next()">&#8250;</button>                      
+                </div>
+            </div>
+        </section>
+
+        <section class="course-cards-section">
+            
+            <div class="component-titles">
+                <h1>Start Learning Today</h1>
+                <p>Choose from our most popular courses and begin your journey</p>
+            </div>
+
+            <div class="cards-wrapper">
+
+                <div class="card">
+                    <div class="image-wrapper">
+                        <img src="./assets/card_pic_1.png" alt="">
+                    </div>
+                    <div class="rating">
+                        <p>Lecturer Marilyn Mango</p>
+                        <span><img src="./assets/star_icon.png" alt="">4.9</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Advanced React & TypeScript Development</h3>
+                        <p>Master modern React patterns, hooks, and TypeScript integration for building scalable web applications.</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-div">
+                            <small>Starting from</small>
+                            <h3 class="price">$299</h3>
+                        </div>
+
+                        <button class="btn btn-dark">Details</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="image-wrapper">
+                        <img src="./assets/card_pic_1.png" alt="">
+                    </div>
+                    <div class="rating">
+                        <p>Lecturer Marilyn Mango</p>
+                        <span><img src="./assets/star_icon.png" alt="">4.9</span>
+                    </div>
+
+                    <div class="card-content">
+                        <h3 class="card-title">Advanced React & TypeScript Development</h3>
+                        <p>Master modern React patterns, hooks, and TypeScript integration for building scalable web applications.</p>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="price-div">
+                            <small>Starting from</small>
+                            <h3 class="price">$299</h3>
+                        </div>
+
+                        <button class="btn btn-dark">Details</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="image-wrapper">
+                        <img src="./assets/card_pic_1.png" alt="">
+                    </div>
+                    <div class="rating">
+                        <p>Lecturer Marilyn Mango</p>
+                        <span><img src="./assets/star_icon.png" alt="">4.9</span>
+                    </div>
+
+                    <div class="card-content">
+                        <h3 class="card-title">Advanced React & TypeScript Development</h3>
+                        <p>Master modern React patterns, hooks, and TypeScript integration for building scalable web applications.</p>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="price-div">
+                            <small>Starting from</small>
+                            <h3 class="price">$299</h3>
+                        </div>
+
+                        <button class="btn btn-dark">Details</button>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="continue-learning-section">
+
+            <div class="component-titles">
+                <h1>Continue Learning</h1>
+                <p>Pick up where you left</p>
+            </div>
+
+            <div class="cards-wrapper">
+                <div class="card-small">
+                    <div class="small-card-top">
+                        <div class="card-small-img">
+                            <img src="./assets/15d2add9f18fc16388ceb80abb81b0a2e0f7949b.png" alt="">
+                        </div>
+                        <div class="small-card-content">
+                            <div class="rating">
+                                <p>Lecturer Marilyn Mango</p>
+                                <span><img src="./assets/star_icon.png" alt="">4.9</span>
+                            </div>
+
+                            <div class="card-title-div">
+                                <h3 class="card-title">Advanced React & TypeScript Development</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-progress-wrapper">
+                        <div class="progress">
+                            <p>65% Complete</p>
+                            <div class="progress-bar"></div>
+                        </div>
+                        <button class="btn btn-light">View</button>
+                    </div>
+                </div>
+
+                <div class="card-small">
+                    <div class="small-card-top">
+                        <div class="card-small-img">
+                            <img src="./assets/15d2add9f18fc16388ceb80abb81b0a2e0f7949b.png" alt="">
+                        </div>
+                        <div class="small-card-content">
+                            <div class="rating">
+                                <p>Lecturer Marilyn Mango</p>
+                                <span><img src="./assets/star_icon.png" alt="">4.9</span>
+                            </div>
+
+                            <div class="card-title-div">
+                                <h3 class="card-title">Advanced React & TypeScript Development</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-progress-wrapper">
+                        <div class="progress">
+                            <p>65% Complete</p>
+                            <div class="progress-bar"></div>
+                        </div>
+                        <button class="btn btn-light">View</button>
+                    </div>
+                </div>
+
+                <div class="card-small">
+                    <div class="small-card-top">
+                        <div class="card-small-img">
+                            <img src="./assets/15d2add9f18fc16388ceb80abb81b0a2e0f7949b.png" alt="">
+                        </div>
+                        <div class="small-card-content">
+                            <div class="rating">
+                                <p>Lecturer Marilyn Mango</p>
+                                <span><img src="./assets/star_icon.png" alt="">4.9</span>
+                            </div>
+
+                            <div class="card-title-div">
+                                <h3 class="card-title">Advanced React & TypeScript Development</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-progress-wrapper">
+                        <div class="progress">
+                            <p>65% Complete</p>
+                            <div class="progress-bar"></div>
+                        </div>
+                        <button class="btn btn-light">View</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-left">
+            <div class="footer-logo-div">
+                <img src="./assets/logo.png" alt="">
+                <h2>Bootca mp</h2>
+            </div>
+
+            <div class="footer-text">
+                <p>your learning journey starts here!</p>
+                <p>Browse courses to get started.</p>
+            </div>
+
+            <div class="footer-socials">
+                <img src="./assets/Facebook.png" alt="">
+                <img src="./assets/Twitter.png" alt="">
+                <img src="./assets/Instagram.png" alt="">
+                <img src="./assets/LinkedIn.png" alt="">
+                <img src="./assets/YouTube.png" alt="">
+            </div>
+        </div>
+    </footer>
+    
+    <script src="./script.js"></script>
+</body>
+</html>
