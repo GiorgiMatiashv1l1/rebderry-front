@@ -285,37 +285,122 @@ function initEmptyState() {
   };
 }
 
-//Browse page Sort dropdown
-const sortDropdown = document.querySelector(".sort-dropdown");
-const sortToggle = document.getElementById("sortToggle");
-const sortMenu = document.getElementById("sortMenu");
-const sortOptions = document.querySelectorAll(".sort-option");
-const selectedSort = document.getElementById("selectedSort");
-
-sortToggle.addEventListener("click", () => {
-  sortDropdown.classList.toggle("open");
+document.addEventListener("DOMContentLoaded", () => {
+  initSortDropdown();
+  initPills();
+  initBreadcrumbLinks();
+  initCourseEnrollSection();
 });
 
-sortOptions.forEach(option => {
-  option.addEventListener("click", () => {
-    sortOptions.forEach(item => item.classList.remove("active"));
-    option.classList.add("active");
-    selectedSort.textContent = option.dataset.value;
-    sortDropdown.classList.remove("open");
+function initSortDropdown() {
+  const sortDropdown = document.querySelector(".sort-dropdown");
+  const sortToggle = document.getElementById("sortToggle");
+  const sortMenu = document.getElementById("sortMenu");
+  const sortOptions = document.querySelectorAll(".sort-option");
+  const selectedSort = document.getElementById("selectedSort");
+
+  if (!sortDropdown || !sortToggle || !sortMenu || !selectedSort || !sortOptions.length) return;
+
+  sortToggle.addEventListener("click", () => {
+    sortDropdown.classList.toggle("open");
   });
-});
 
-document.addEventListener("click", (e) => {
-  if (!sortDropdown.contains(e.target)) {
-    sortDropdown.classList.remove("open");
-  }
-});
-
-//when pill is active
-const pills = document.querySelectorAll(".pill");
-
-pills.forEach(pill => {
-  pill.addEventListener("click", () => {
-    pill.classList.toggle("active");
+  sortOptions.forEach(option => {
+    option.addEventListener("click", () => {
+      sortOptions.forEach(item => item.classList.remove("active"));
+      option.classList.add("active");
+      selectedSort.textContent = option.dataset.value;
+      sortDropdown.classList.remove("open");
+    });
   });
-});
+
+  document.addEventListener("click", (e) => {
+    if (!sortDropdown.contains(e.target)) {
+      sortDropdown.classList.remove("open");
+    }
+  });
+}
+
+function initPills() {
+  const pills = document.querySelectorAll(".pill");
+  if (!pills.length) return;
+
+  pills.forEach(pill => {
+    pill.addEventListener("click", () => {
+      pill.classList.toggle("active");
+    });
+  });
+}
+
+function initBreadcrumbLinks() {
+  const links = document.querySelectorAll(".link-path");
+  if (!links.length) return;
+
+  const currentPage = window.location.pathname;
+
+  links.forEach(link => {
+    const href = link.getAttribute("href");
+    if (href && href !== "#" && currentPage.includes(href)) {
+      link.classList.add("active");
+    }
+  });
+}
+
+function initCourseEnrollSection() {
+  const headers = document.querySelectorAll(".dropdown-header");
+  const cards = document.querySelectorAll(".option-card:not(.disabled)");
+  const totalPriceEl = document.getElementById("totalPrice");
+  const sessionTypePriceEl = document.getElementById("sessionTypePrice");
+  const enrollBtn = document.getElementById("enrollBtn");
+
+  if (!headers.length || !cards.length || !totalPriceEl || !sessionTypePriceEl || !enrollBtn) return;
+
+  const basePrice = 349;
+
+  const state = {
+    schedule: null,
+    time: null,
+    session: null,
+    sessionPrice: 0,
+    seats: 0
+  };
+
+  headers.forEach(header => {
+    header.addEventListener("click", () => {
+      const item = header.closest(".dropdown-item");
+      if (!item) return;
+      item.classList.toggle("open");
+    });
+  });
+
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+      const type = card.dataset.type;
+      const value = card.dataset.value;
+      const price = Number(card.dataset.price || 0);
+      const seats = Number(card.dataset.seats || 999);
+
+      document.querySelectorAll(`.option-card[data-type="${type}"]`).forEach(item => {
+        item.classList.remove("selected");
+      });
+
+      card.classList.add("selected");
+
+      if (type === "schedule") state.schedule = value;
+      if (type === "time") state.time = value;
+      if (type === "session") {
+        state.session = value;
+        state.sessionPrice = price;
+        state.seats = seats;
+      }
+
+      const total = basePrice + state.sessionPrice;
+      totalPriceEl.textContent = `$${total}`;
+      sessionTypePriceEl.textContent = `+ $${state.sessionPrice}`;
+
+      const ready = state.schedule && state.time && state.session && state.seats > 0;
+      enrollBtn.disabled = !ready;
+      enrollBtn.classList.toggle("enabled", ready);
+    });
+  });
+}
