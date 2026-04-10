@@ -284,3 +284,38 @@ function initEmptyState() {
     emptyState.style.display = "none";
   };
 }
+
+//Browse page Sort dropdown
+const sortDropdown = document.querySelector(".sort-dropdown");
+const sortToggle = document.getElementById("sortToggle");
+const sortMenu = document.getElementById("sortMenu");
+const sortOptions = document.querySelectorAll(".sort-option");
+const selectedSort = document.getElementById("selectedSort");
+
+sortToggle.addEventListener("click", () => {
+  sortDropdown.classList.toggle("open");
+});
+
+sortOptions.forEach(option => {
+  option.addEventListener("click", () => {
+    sortOptions.forEach(item => item.classList.remove("active"));
+    option.classList.add("active");
+    selectedSort.textContent = option.dataset.value;
+    sortDropdown.classList.remove("open");
+  });
+});
+
+document.addEventListener("click", (e) => {
+  if (!sortDropdown.contains(e.target)) {
+    sortDropdown.classList.remove("open");
+  }
+});
+
+//when pill is active
+const pills = document.querySelectorAll(".pill");
+
+pills.forEach(pill => {
+  pill.addEventListener("click", () => {
+    pill.classList.toggle("active");
+  });
+});

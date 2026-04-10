@@ -9,7 +9,7 @@
 <body>
     <header class="page-header">
         <nav class="navbar">
-            <a href="#">
+            <a href="./index.html">
                 <div class="logo">
                     <img src="./assets/logo.png" alt="Logo">
                 </div>
@@ -311,11 +311,66 @@
                         <button class="btn btn-light">View</button>
                     </div>
                 </div>
+                <div class="card-small">
+                    <div class="small-card-top">
+                        <div class="card-small-img">
+                            <img src="./assets/15d2add9f18fc16388ceb80abb81b0a2e0f7949b.png" alt="">
+                        </div>
+                        <div class="small-card-content">
+                            <div class="rating">
+                                <p>Lecturer Marilyn Mango</p>
+                                <span><img src="./assets/star_icon.png" alt="">4.9</span>
+                            </div>
+
+                            <div class="card-title-div">
+                                <h3 class="card-title">Advanced React & TypeScript Development</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-progress-wrapper">
+                        <div class="progress">
+                            <p><span id="progressText">65%</span> Complete</p>
+                            <div class="progress-track">
+                                <div class="progress-bar" data-progress="65"></div>
+                            </div>
+                        </div>
+                        <button class="btn btn-light">View</button>
+                    </div>
+                </div>
+
+                <div class="card-small">
+                    <div class="small-card-top">
+                        <div class="card-small-img">
+                            <img src="./assets/15d2add9f18fc16388ceb80abb81b0a2e0f7949b.png" alt="">
+                        </div>
+                        <div class="small-card-content">
+                            <div class="rating">
+                                <p>Lecturer Marilyn Mango</p>
+                                <span><img src="./assets/star_icon.png" alt="">4.9</span>
+                            </div>
+
+                            <div class="card-title-div">
+                                <h3 class="card-title">Advanced React & TypeScript Development</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-progress-wrapper">
+                        <div class="progress">
+                            <p><span id="progressText">65%</span> Complete</p>
+                            <div class="progress-track">
+                                <div class="progress-bar" data-progress="65"></div>
+                            </div>
+                        </div>
+                        <button class="btn btn-light">View</button>
+                    </div>
+                </div>
         </div>
 
 
         <!-- Empty state -->
-      <div class="empty-state" id="emptyState">
+      <!-- <div class="empty-state" id="emptyState">
             <div class="empty-icon">
                 <svg
                     width="72"
@@ -341,21 +396,365 @@
                 Browse courses to get started.
             </p>
 
-            <a href="./browse.html" class="btn-dark">Browse Courses</a>
-        </div>
+            <a href="./browse.html" class="btn-sidebar">Browse Courses</a>
+        </div> -->
      </aside>
 
-   
+        <div class="paths-div">
+            <p class="paths">
+                <a href="#" class="home-path">Home</a>
+                <span>&#x3e;</span>
+                <a href="#" class="browse-path">Browse</a>
+            </p>
+        </div>
 
-    <div class="divider"></div>
+     <main class="browse-main">
+
+        <aside class="filter-sidebar">
+            <div class="filter-header">
+                <h2>Filters</h2>
+                <a href="#" class="clear-filters">Clear All Filters ✕</a>
+            </div>
+
+            <div class="filter-group">
+                <h3>Categories</h3>
+                <div class="pill-list">
+                    <button class="pill"><span class="pill-icon">&lt;/&gt;</span> Development</button>
+                    <button class="pill"><span class="pill-icon"><img src="./assets/design_icon.png" alt=""></span> Design</button>
+                    <button class="pill"><span class="pill-icon"><img src="./assets/business_icon.png" alt=""></span> Business</button>
+                    <button class="pill"><span class="pill-icon"><img src="./assets/data-science-icon.png" alt=""></span> Data Science</button>
+                    <button class="pill"><span class="pill-icon"><img src="./assets/marketing-icon.png" alt=""></span> Marketing</button>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h3>Topics</h3>
+                <div class="pill-list">
+                    <button class="pill" data-filter="category" data-value="development">React</button>
+                    <button class="pill" data-filter="category" data-value="development">TypeScript</button>
+                    <button class="pill" data-filter="category" data-value="development">Phyton</button>
+                    <button class="pill" data-filter="category" data-value="design">UX/UI</button>
+                    <button class="pill" data-filter="category" data-value="design">Figma</button>
+                    <button class="pill" data-filter="category" data-value="development">JavaScript</button>
+                    <button class="pill" data-filter="category" data-value="development">Node.js</button>
+                    <button class="pill" data-filter="category" data-value="development">Machine Learning</button>
+                    <button class="pill" data-filter="category" data-value="development">Seo</button>
+                    <button class="pill" data-filter="category" data-value="development">Analytics</button>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h3>Instructor</h3>
+                <div class="instructor-list">
+                    <div class="instructor-item">
+                        <img src="./assets/marilyn-mango-pfp.png" alt="Marilyn Mango">
+                        <span>Marilyn Mango</span>
+                    </div>
+
+                    <div class="instructor-item">
+                        <img src="./assets/ryan-dorwart-pfp.png" alt="Ryan Dorwart">
+                        <span>Ryan Dorwart</span>
+                    </div>
+
+                    <div class="instructor-item">
+                        <img src="./assets/roger-calzoni-pfp.png" alt="Roger Calzoni">
+                        <span>Roger Calzoni</span>
+                    </div>
+
+                    <div class="instructor-item">
+                        <img src="./assets/zain-phillips-pfp.png" alt="Zain Philips">
+                        <span>Zain Philips</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                0 Filters Active
+            </div>
+        </aside>
+
+        <section class="cards-grid-section">
+            <div class="cards-grid-header">
+                <p>Showing <span>9</span> out of <span>90</span></p>
+
+                <div class="sort-dropdown">
+                    <button class="sort-btn" id="sortToggle">
+                        <span>
+                        Sort By:
+                        <strong id="selectedSort">Newest First</strong>
+                        </span>
+                        <span class="arrow" id="sortArrow"><img src="./assets/arrow-down-icon.png" alt=""></span>
+                    </button>
+
+                    <div class="sort-menu" id="sortMenu">
+                        <div class="sort-option" data-value="Newest First">Newest First</div>
+                        <div class="sort-option active" data-value="Price: Low to High">Price: Low to High</div>
+                        <div class="sort-option" data-value="Price: High to Low">Price: High to Low</div>
+                        <div class="sort-option" data-value="Most Popular">Most Popular</div>
+                        <div class="sort-option" data-value="Title: A-Z">Title: A-Z</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cards-grid">
+                
+                <div class="card browse-card">
+                    <div class="image-wrapper">
+                        <img src="./assets/card_pic_1.png" alt="">
+                    </div>
+                    <div class="rating">
+                        <div class="instructor-name">
+                            <p>Marilyn Mango</p>
+                            <span>|</span>
+                            <p>12 weeks</p>
+                        </div>
+                        <span><img src="./assets/star_icon.png" alt="">4.9</span>
+                    </div>
+                    <div class="card-content browse-card-content">
+                        <h3 class="card-title">Advanced React & TypeScript Development</h3>
+                        <div class="category">
+                            <button class="pill" data-filter="category" data-value="development"><span class="pill-icon">&lt;/&gt;</span> Development</button>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-div">
+                            <small>Starting from</small>
+                            <h3 class="price">$299</h3>
+                        </div>
+                        <button class="btn btn-dark">Details</button>
+                    </div>
+                </div>
+
+                <div class="card browse-card">
+                    <div class="image-wrapper">
+                        <img src="./assets/card_pic_1.png" alt="">
+                    </div>
+                    <div class="rating">
+                        <div class="instructor-name">
+                            <p>Marilyn Mango</p>
+                            <span>|</span>
+                            <p>12 weeks</p>
+                        </div>
+                        <span><img src="./assets/star_icon.png" alt="">4.9</span>
+                    </div>
+                    <div class="card-content browse-card-content">
+                        <h3 class="card-title">Advanced React & TypeScript Development</h3>
+                        <div class="category">
+                            <button class="pill" data-filter="category" data-value="development"><span class="pill-icon">&lt;/&gt;</span> Development</button>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-div">
+                            <small>Starting from</small>
+                            <h3 class="price">$299</h3>
+                        </div>
+                        <button class="btn btn-dark">Details</button>
+                    </div>
+                </div>
+
+                <div class="card browse-card">
+                    <div class="image-wrapper">
+                        <img src="./assets/card_pic_1.png" alt="">
+                    </div>
+                    <div class="rating">
+                        <div class="instructor-name">
+                            <p>Marilyn Mango</p>
+                            <span>|</span>
+                            <p>12 weeks</p>
+                        </div>
+                        <span><img src="./assets/star_icon.png" alt="">4.9</span>
+                    </div>
+                    <div class="card-content browse-card-content">
+                        <h3 class="card-title">Advanced React & TypeScript Development</h3>
+                        <div class="category">
+                            <button class="pill" data-filter="category" data-value="development"><span class="pill-icon">&lt;/&gt;</span> Development</button>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-div">
+                            <small>Starting from</small>
+                            <h3 class="price">$299</h3>
+                        </div>
+                        <button class="btn btn-dark">Details</button>
+                    </div>
+                </div>
+
+                <div class="card browse-card">
+                    <div class="image-wrapper">
+                        <img src="./assets/card_pic_1.png" alt="">
+                    </div>
+                    <div class="rating">
+                        <div class="instructor-name">
+                            <p>Marilyn Mango</p>
+                            <span>|</span>
+                            <p>12 weeks</p>
+                        </div>
+                        <span><img src="./assets/star_icon.png" alt="">4.9</span>
+                    </div>
+                    <div class="card-content browse-card-content">
+                        <h3 class="card-title">Advanced React & TypeScript Development</h3>
+                        <div class="category">
+                            <button class="pill" data-filter="category" data-value="development"><span class="pill-icon">&lt;/&gt;</span> Development</button>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-div">
+                            <small>Starting from</small>
+                            <h3 class="price">$299</h3>
+                        </div>
+                        <button class="btn btn-dark">Details</button>
+                    </div>
+                </div>
+
+                <div class="card browse-card">
+                    <div class="image-wrapper">
+                        <img src="./assets/card_pic_1.png" alt="">
+                    </div>
+                    <div class="rating">
+                        <div class="instructor-name">
+                            <p>Marilyn Mango</p>
+                            <span>|</span>
+                            <p>12 weeks</p>
+                        </div>
+                        <span><img src="./assets/star_icon.png" alt="">4.9</span>
+                    </div>
+                    <div class="card-content browse-card-content">
+                        <h3 class="card-title">Advanced React & TypeScript Development</h3>
+                        <div class="category">
+                            <button class="pill" data-filter="category" data-value="development"><span class="pill-icon">&lt;/&gt;</span> Development</button>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-div">
+                            <small>Starting from</small>
+                            <h3 class="price">$299</h3>
+                        </div>
+                        <button class="btn btn-dark">Details</button>
+                    </div>
+                </div>
+
+                <div class="card browse-card">
+                    <div class="image-wrapper">
+                        <img src="./assets/card_pic_1.png" alt="">
+                    </div>
+                    <div class="rating">
+                        <div class="instructor-name">
+                            <p>Marilyn Mango</p>
+                            <span>|</span>
+                            <p>12 weeks</p>
+                        </div>
+                        <span><img src="./assets/star_icon.png" alt="">4.9</span>
+                    </div>
+                    <div class="card-content browse-card-content">
+                        <h3 class="card-title">Advanced React & TypeScript Development</h3>
+                        <div class="category">
+                            <button class="pill" data-filter="category" data-value="development"><span class="pill-icon">&lt;/&gt;</span> Development</button>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-div">
+                            <small>Starting from</small>
+                            <h3 class="price">$299</h3>
+                        </div>
+                        <button class="btn btn-dark">Details</button>
+                    </div>
+                </div>
+
+                <div class="card browse-card">
+                    <div class="image-wrapper">
+                        <img src="./assets/card_pic_1.png" alt="">
+                    </div>
+                    <div class="rating">
+                        <div class="instructor-name">
+                            <p>Marilyn Mango</p>
+                            <span>|</span>
+                            <p>12 weeks</p>
+                        </div>
+                        <span><img src="./assets/star_icon.png" alt="">4.9</span>
+                    </div>
+                    <div class="card-content browse-card-content">
+                        <h3 class="card-title">Advanced React & TypeScript Development</h3>
+                        <div class="category">
+                            <button class="pill" data-filter="category" data-value="development"><span class="pill-icon">&lt;/&gt;</span> Development</button>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-div">
+                            <small>Starting from</small>
+                            <h3 class="price">$299</h3>
+                        </div>
+                        <button class="btn btn-dark">Details</button>
+                    </div>
+                </div>
+
+                <div class="card browse-card">
+                    <div class="image-wrapper">
+                        <img src="./assets/card_pic_1.png" alt="">
+                    </div>
+                    <div class="rating">
+                        <div class="instructor-name">
+                            <p>Marilyn Mango</p>
+                            <span>|</span>
+                            <p>12 weeks</p>
+                        </div>
+                        <span><img src="./assets/star_icon.png" alt="">4.9</span>
+                    </div>
+                    <div class="card-content browse-card-content">
+                        <h3 class="card-title">Advanced React & TypeScript Development</h3>
+                        <div class="category">
+                            <button class="pill" data-filter="category" data-value="development"><span class="pill-icon">&lt;/&gt;</span> Development</button>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-div">
+                            <small>Starting from</small>
+                            <h3 class="price">$299</h3>
+                        </div>
+                        <button class="btn btn-dark">Details</button>
+                    </div>
+                </div>
+
+                <div class="card browse-card">
+                    <div class="image-wrapper">
+                        <img src="./assets/card_pic_1.png" alt="">
+                    </div>
+                    <div class="rating">
+                        <div class="instructor-name">
+                            <p>Marilyn Mango</p>
+                            <span>|</span>
+                            <p>12 weeks</p>
+                        </div>
+                        <span><img src="./assets/star_icon.png" alt="">4.9</span>
+                    </div>
+                    <div class="card-content browse-card-content">
+                        <h3 class="card-title">Advanced React & TypeScript Development</h3>
+                        <div class="category">
+                            <button class="pill" data-filter="category" data-value="development"><span class="pill-icon">&lt;/&gt;</span> Development</button>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-div">
+                            <small>Starting from</small>
+                            <h3 class="price">$299</h3>
+                        </div>
+                        <button class="btn btn-dark">Details</button>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+     </main>
+
 
     <footer class="page-footer">
         <div class="footer-wrapper">
             <div class="footer-left">
-                <div class="footer-logo-div">
-                    <img class="logo-footer" src="./assets/logo.png" alt="">
-                    <h2>Bootca mp</h2>
-                </div>
+                <a href="./index.html">
+                    <div class="footer-logo-div">
+                        <img class="logo-footer" src="./assets/logo.png" alt="">
+                        <h2>Bootcamp</h2>
+                    </div>
+                </a>
 
                 <div class="footer-text">
                     <p>your learning journey starts here!</p>
