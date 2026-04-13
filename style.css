@@ -12,7 +12,6 @@ a {
 .page-header {
   width: 100%;
   border-bottom: 1px solid #d1d1d1;
-  padding-top: 24px;
   padding-bottom: 24px;
 }
 
@@ -270,6 +269,8 @@ main {
 
 .course-cards-section {
   padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
 }
 
 .cards-wrapper {
@@ -278,6 +279,7 @@ main {
   display: flex;
   justify-content: space-between;
   gap: 20px;
+  padding-top: 90px;
 }
 
 .component-titles {
@@ -1666,7 +1668,7 @@ main {
   font-weight: 600;
   font-size: 20px;
 }
-
+/* 
 /* Course Page right side */
 
 * {
