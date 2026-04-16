@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initPills();
   initBreadcrumbLinks();
   initCourseEnrollSection();
+  initRateCourse();
 });
 
 // --- Utilities ---
@@ -499,6 +500,49 @@ function initBreadcrumbLinks() {
     if (href && href !== "#" && currentPage.includes(href)) {
       link.classList.add("active");
     }
+  });
+}
+
+// ===================== Rate Course =====================
+
+function initRateCourse() {
+  const rateOverlay = getEl("rateOverlay");
+  if (!rateOverlay) return;
+
+  setupModal(rateOverlay, getEl("openRateModal"), getEl("closeRateModal"));
+
+  const stars = document.querySelectorAll(".rate-star");
+  const starsContainer = getEl("rateStars");
+  let currentRating = 0;
+
+  function renderStars(rating) {
+    stars.forEach((star, i) => {
+      const pos = i + 1;
+      if (rating >= pos) {
+        star.src = "./assets/Star-full.png";
+      } else if (rating >= pos - 0.5) {
+        star.src = "./assets/Star-half.png";
+      } else {
+        star.src = "./assets/Star-empty.png";
+      }
+    });
+  }
+
+  stars.forEach((star, i) => {
+    star.addEventListener("mousemove", (e) => {
+      const isLeftHalf = e.offsetX < star.offsetWidth / 2;
+      renderStars(isLeftHalf ? i + 0.5 : i + 1);
+    });
+
+    star.addEventListener("click", (e) => {
+      const isLeftHalf = e.offsetX < star.offsetWidth / 2;
+      currentRating = isLeftHalf ? i + 0.5 : i + 1;
+      renderStars(currentRating);
+    });
+  });
+
+  starsContainer?.addEventListener("mouseleave", () => {
+    renderStars(currentRating);
   });
 }
 

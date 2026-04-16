@@ -1,414 +1,516 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Course Inner Page</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <header class="page-header">
-        <nav class="navbar">
-            <a href="#">
-                <div class="logo">
-                    <img src="./assets/logo.png" alt="Logo">
-                </div>
+      <nav class="navbar">
+        <a href="#">
+          <div class="logo">
+            <img src="./assets/logo.png" alt="Logo" />
+          </div>
+        </a>
+
+        <div class="nav-right">
+          <ul class="nav-links">
+            <a href="./browse.html">
+              <li class="nav-link">
+                <span class="nav-icon"
+                  ><img src="./assets/Nav_icon_1.png" alt="Nav_icon_1"
+                /></span>
+                <span>Browse Courses</span>
+              </li>
             </a>
-            
-            <div class="nav-right">
-                <ul class="nav-links">
-                    <a href="./browse.html">
-                        <li class="nav-link">
-                            <span class="nav-icon"><img src="./assets/Nav_icon_1.png" alt="Nav_icon_1"></span>
-                            <span>Browse Courses</span>
-                        </li>
-                    </a>
-                    
-                    <a href="#" id="openSidebar">
-                        <li class="nav-link">
-                            <span class="nav-icon"><img src="./assets/Nav_icon_2.png" alt="Nav_icon_1"></span>
-                            <span>Enrolled Courses</span>
-                        </li>
-                    </a>
-                </ul>
 
-                <div class="nav-auth">
-                    <button class="btn btn-light open-btn" id="openModal">Log In</button>
-                    <button class="btn btn-dark" id="openRegister">Sign Up</button>
-                </div>
+            <a href="#" id="openSidebar">
+              <li class="nav-link">
+                <span class="nav-icon"
+                  ><img src="./assets/Nav_icon_2.png" alt="Nav_icon_1"
+                /></span>
+                <span>Enrolled Courses</span>
+              </li>
+            </a>
+          </ul>
 
-                <div class="nav-authed">
-                    <button class="profile-icon-btn" id="openProfileModal">
-                        <img src="./assets/Avatar.png" alt="">
-                    </button>
-                </div>
-            </div>
-        </nav>
+          <div class="nav-auth">
+            <button class="btn btn-light open-btn" id="openModal">
+              Log In
+            </button>
+            <button class="btn btn-dark" id="openRegister">Sign Up</button>
+          </div>
+
+          <div class="nav-authed">
+            <button class="profile-icon-btn" id="openProfileModal">
+              <img src="./assets/Avatar.png" alt="" />
+            </button>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <!--Login Form-->
 
     <div class="overlay" id="modalOverlay">
-        <div class="modal">
-            <button class="close-btn" id="closeModal">&times;</button>
+      <div class="modal">
+        <button class="close-btn" id="closeModal">&times;</button>
 
-            <h2>Welcome Back</h2>
-            <p>Log in to continue your learning</p>
+        <h2>Welcome Back</h2>
+        <p>Log in to continue your learning</p>
 
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="you@example.com">
-            </div>
-
-            <div class="form-group">
-                <label for="password">Password</label>
-                <div class="password-wrapper">
-                    <input type="password" id="password" placeholder="••••••••">
-                    <button type="button" class="eye-btn" id="togglePassword">👁</button>
-                </div>
-            </div>
-
-            <button class="login-btn">Log In</button>
-
-            <div class="divider">or</div>
-
-            <div class="bottom-text">
-                Don’t have an account? <a href="#" id="goToRegister">Sign Up</a>
-            </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="you@example.com" />
         </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="password-wrapper">
+            <input type="password" id="password" placeholder="••••••••" />
+            <button type="button" class="eye-btn" id="togglePassword">
+              👁
+            </button>
+          </div>
+        </div>
+
+        <button class="login-btn">Log In</button>
+
+        <div class="divider">or</div>
+
+        <div class="bottom-text">
+          Don’t have an account? <a href="#" id="goToRegister">Sign Up</a>
+        </div>
+      </div>
     </div>
 
     <!-- Register form -->
     <div class="register-overlay" id="registerOverlay">
-        <div class="register-modal">
-            <button class="register-close" id="closeRegister">&times;</button>
-            <button class="register-back" id="prevStepBtn">&#10094;</button>
+      <div class="register-modal">
+        <button class="register-close" id="closeRegister">&times;</button>
+        <button class="register-back" id="prevStepBtn">&#10094;</button>
 
-            <h2>Create Account</h2>
-            <p>Join and start learning today</p>
+        <h2>Create Account</h2>
+        <p>Join and start learning today</p>
 
-            <div class="register-progress">
-                <span class="progress-line active"></span>
-                <span class="progress-line"></span>
-                <span class="progress-line"></span>
-            </div>
-
-            <form id="registerForm">
-            <!-- Step 1 -->
-            <div class="register-step active" data-step="1">
-                <div class="form-group">
-                    <label for="regEmail">Email*</label>
-                    <input type="email" id="regEmail" placeholder="you@example.com" required>
-                </div>
-
-                <button type="button" class="register-btn" id="nextStep1">Next</button>
-            </div>
-
-            <!-- Step 2 -->
-            <div class="register-step" data-step="2">
-                <div class="form-group">
-                    <label for="regPassword">Password*</label>
-                    <div class="password-box">
-                        <input type="password" id="regPassword" placeholder="Password" required>
-                        <button type="button" class="eye-toggle" data-target="regPassword">👁</button>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="regConfirmPassword">Confirm Password*</label>
-                    <div class="password-box">
-                        <input type="password" id="regConfirmPassword" placeholder="••••••••" required>
-                        <button type="button" class="eye-toggle" data-target="regConfirmPassword">👁</button>
-                    </div>
-                </div>
-
-                <button type="button" class="register-btn" id="nextStep2">Next</button>
-            </div>
-
-            <!-- Step 3 -->
-            <div class="register-step" data-step="3">
-                <div class="form-group">
-                    <label for="regUsername">Username*</label>
-                    <input type="text" id="regUsername" placeholder="Username" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Upload Avatar</label>
-                    <label for="avatarUpload" class="upload-box">
-                        <div class="upload-icon">⇪</div>
-                        <div>Drag and drop or <span>Upload file</span></div>
-                        <small>JPG, PNG or WebP</small>
-                    </label>
-                    <input type="file" id="avatarUpload" accept=".jpg,.jpeg,.png,.webp" hidden>
-                </div>
-
-                <button type="submit" class="register-btn">Sign Up</button>
-            </div>
-            </form>
-
-            <div class="register-divider">or</div>
-
-            <div class="register-login-text">
-                Already have an account? <a href="#" id="goToLogin">Log In</a>
-            </div>
+        <div class="register-progress">
+          <span class="progress-line active"></span>
+          <span class="progress-line"></span>
+          <span class="progress-line"></span>
         </div>
+
+        <form id="registerForm">
+          <!-- Step 1 -->
+          <div class="register-step active" data-step="1">
+            <div class="form-group">
+              <label for="regEmail">Email*</label>
+              <input
+                type="email"
+                id="regEmail"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+
+            <button type="button" class="register-btn" id="nextStep1">
+              Next
+            </button>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="register-step" data-step="2">
+            <div class="form-group">
+              <label for="regPassword">Password*</label>
+              <div class="password-box">
+                <input
+                  type="password"
+                  id="regPassword"
+                  placeholder="Password"
+                  required
+                />
+                <button
+                  type="button"
+                  class="eye-toggle"
+                  data-target="regPassword"
+                >
+                  👁
+                </button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="regConfirmPassword">Confirm Password*</label>
+              <div class="password-box">
+                <input
+                  type="password"
+                  id="regConfirmPassword"
+                  placeholder="••••••••"
+                  required
+                />
+                <button
+                  type="button"
+                  class="eye-toggle"
+                  data-target="regConfirmPassword"
+                >
+                  👁
+                </button>
+              </div>
+            </div>
+
+            <button type="button" class="register-btn" id="nextStep2">
+              Next
+            </button>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="register-step" data-step="3">
+            <div class="form-group">
+              <label for="regUsername">Username*</label>
+              <input
+                type="text"
+                id="regUsername"
+                placeholder="Username"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label>Upload Avatar</label>
+              <label for="avatarUpload" class="upload-box">
+                <div class="upload-icon">⇪</div>
+                <div>Drag and drop or <span>Upload file</span></div>
+                <small>JPG, PNG or WebP</small>
+              </label>
+              <input
+                type="file"
+                id="avatarUpload"
+                accept=".jpg,.jpeg,.png,.webp"
+                hidden
+              />
+            </div>
+
+            <button type="submit" class="register-btn">Sign Up</button>
+          </div>
+        </form>
+
+        <div class="register-divider">or</div>
+
+        <div class="register-login-text">
+          Already have an account? <a href="#" id="goToLogin">Log In</a>
+        </div>
+      </div>
     </div>
 
     <!--Profile Modal-->
     <div class="profile-overlay" id="profileOverlay">
-        <div class="profile-modal">
-            <button class="profile-close" id="closeProfileModal">&times;</button>
+      <div class="profile-modal">
+        <button class="profile-close" id="closeProfileModal">&times;</button>
 
-            <h2>Profile</h2>
+        <h2>Profile</h2>
 
-            <div class="profile-header">
-                <img src="https://via.placeholder.com/56" alt="Avatar" class="profile-avatar">
-                <div class="profile-user-info">
-                    <h3>Username</h3>
-                    <p><span class="green-dot"></span> Profile is Complete</p>
-                </div>
-            </div>
-
-            <form>
-            <div class="profile-form-group">
-                <label for="fullName">Full Name</label>
-                <div class="input-icon-wrap">
-                    <input type="text" id="fullName" placeholder="Username">
-                    <span class="input-icon">✎</span>
-                </div>
-            </div>
-
-            <div class="profile-form-group">
-                <label for="profileEmail">Email</label>
-                <div class="input-icon-wrap">
-                    <input type="email" id="profileEmail" placeholder="Email@gmail.com">
-                    <span class="input-icon">✓</span>
-                </div>
-            </div>
-
-            <div class="profile-row">
-                <div class="profile-form-group">
-                <label for="mobileNumber">Mobile Number</label>
-                    <div class="input-icon-wrap">
-                        <input type="text" id="mobileNumber" placeholder="+995 599209820">
-                        <span class="input-icon">✓</span>
-                    </div>
-                </div>
-
-                <div class="profile-form-group small-field">
-                    <label for="age">Age</label>
-                    <div class="input-icon-wrap">
-                        <input type="text" id="age" placeholder="29">
-                        <span class="input-icon">⌄</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="profile-form-group">
-                <label>Upload Avatar</label>
-                <label for="profileAvatarUpload" class="profile-upload-box">
-                <div class="upload-arrow">⇪</div>
-                <div>Drag and drop or <span>Upload file</span></div>
-                <small>JPG, PNG or WebP</small>
-                </label>
-                <input type="file" id="profileAvatarUpload" hidden accept=".jpg,.jpeg,.png,.webp">
-            </div>
-
-            <button type="submit" class="profile-update-btn">Update Profile</button>
-            </form>
-
-            <form method="POST" action="" id="logoutForm">
-
-            </form>
-
-            <button type="submit" form="logoutForm" class="profile-logout-btn">Log Out</button>
+        <div class="profile-header">
+          <img
+            src="https://via.placeholder.com/56"
+            alt="Avatar"
+            class="profile-avatar"
+          />
+          <div class="profile-user-info">
+            <h3>Username</h3>
+            <p><span class="green-dot"></span> Profile is Complete</p>
+          </div>
         </div>
+
+        <form>
+          <div class="profile-form-group">
+            <label for="fullName">Full Name</label>
+            <div class="input-icon-wrap">
+              <input type="text" id="fullName" placeholder="Username" />
+              <span class="input-icon">✎</span>
+            </div>
+          </div>
+
+          <div class="profile-form-group">
+            <label for="profileEmail">Email</label>
+            <div class="input-icon-wrap">
+              <input
+                type="email"
+                id="profileEmail"
+                placeholder="Email@gmail.com"
+              />
+              <span class="input-icon">✓</span>
+            </div>
+          </div>
+
+          <div class="profile-row">
+            <div class="profile-form-group">
+              <label for="mobileNumber">Mobile Number</label>
+              <div class="input-icon-wrap">
+                <input
+                  type="text"
+                  id="mobileNumber"
+                  placeholder="+995 599209820"
+                />
+                <span class="input-icon">✓</span>
+              </div>
+            </div>
+
+            <div class="profile-form-group small-field">
+              <label for="age">Age</label>
+              <div class="input-icon-wrap">
+                <input type="text" id="age" placeholder="29" />
+                <span class="input-icon">⌄</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-form-group">
+            <label>Upload Avatar</label>
+            <label for="profileAvatarUpload" class="profile-upload-box">
+              <div class="upload-arrow">⇪</div>
+              <div>Drag and drop or <span>Upload file</span></div>
+              <small>JPG, PNG or WebP</small>
+            </label>
+            <input
+              type="file"
+              id="profileAvatarUpload"
+              hidden
+              accept=".jpg,.jpeg,.png,.webp"
+            />
+          </div>
+
+          <button type="submit" class="profile-update-btn">
+            Update Profile
+          </button>
+        </form>
+
+        <form method="POST" action="" id="logoutForm"></form>
+
+        <button type="submit" form="logoutForm" class="profile-logout-btn">
+          Log Out
+        </button>
+      </div>
     </div>
 
     <!-- Sidebar - Enrolled Courses -->
-     <div class="sidebar-overlay" id="sidebarOverlay"></div>
-     <aside class="right-sidebar" id="rightSidebar">
-        <div class="sidebar-header">
-            <h2>Enrolled Courses</h2>
-            <button id="closeSidebar">&times;</button>
-        </div>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <aside class="right-sidebar" id="rightSidebar">
+      <div class="sidebar-header">
+        <h2>Enrolled Courses</h2>
+        <button id="closeSidebar">&times;</button>
+      </div>
 
-        <div class="sidebar-content">
-            <div class="card-small card">
-                    <div class="small-card-top">
-                        <div class="card-small-img">
-                            <img src="./assets/15d2add9f18fc16388ceb80abb81b0a2e0f7949b.png" alt="">
-                        </div>
-                        <div class="small-card-content">
-                            <div class="rating">
-                                <p>Instructor Sarah Johnson</p>
-                                <span><img src="./assets/star_icon.png" alt="">4.9</span>
-                            </div>
-
-                            <div class="card-title-div">
-                                <h3 class="card-title">Advanced React & TypeScript Development</h3>
-                            </div>                            
-                        </div>
-                    </div>
-                    
-                    <div class="card-progress-wrapper">
-                        <div class="progress">
-                            <p><span id="progressText">65%</span> Complete</p>
-                            <div class="progress-track">
-                                <div class="progress-bar" data-progress="65"></div>
-                            </div>
-                        </div>
-                        <button class="btn btn-light">View</button>
-                    </div>
-                </div>
- 
-                <div class="card-small card">
-                    <div class="small-card-top">
-                        <div class="card-small-img">
-                            <img src="./assets/15d2add9f18fc16388ceb80abb81b0a2e0f7949b.png" alt="">
-                        </div>
-                        <div class="small-card-content">
-                            <div class="rating">
-                                <p>Lecturer Marilyn Mango</p>
-                                <span><img src="./assets/star_icon.png" alt="">4.9</span>
-                            </div>
-
-                            <div class="card-title-div">
-                                <h3 class="card-title">Advanced React & TypeScript Development</h3>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="card-progress-wrapper">
-                        <div class="progress">
-                            <p><span id="progressText">65%</span> Complete</p>
-                            <div class="progress-track">
-                                <div class="progress-bar" data-progress="65"></div>
-                            </div>
-                        </div>
-                        <button class="btn btn-light">View</button>
-                    </div>
-                </div>
-
-                <div class="card-small card">
-                    <div class="small-card-top">
-                        <div class="card-small-img">
-                            <img src="./assets/15d2add9f18fc16388ceb80abb81b0a2e0f7949b.png" alt="">
-                        </div>
-                        <div class="small-card-content">
-                            <div class="rating">
-                                <p>Lecturer Marilyn Mango</p>
-                                <span><img src="./assets/star_icon.png" alt="">4.9</span>
-                            </div>
-
-                            <div class="card-title-div">
-                                <h3 class="card-title">Advanced React & TypeScript Development</h3>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="card-progress-wrapper">
-                        <div class="progress">
-                            <p><span id="progressText">65%</span> Complete</p>
-                            <div class="progress-track">
-                                <div class="progress-bar" data-progress="65"></div>
-                            </div>
-                        </div>
-                        <button class="btn btn-light">View</button>
-                    </div>
-                </div>
-        </div>
-
-
-        <!-- Empty state -->
-      <div class="empty-state" id="emptyState">
-            <div class="empty-icon">
-                <svg
-                    width="72"
-                    height="72"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    >
-                    <path d="M21 8a2 2 0 0 0-1.1-1.79l-7-3.5a2 2 0 0 0-1.8 0l-7 3.5A2 2 0 0 0 3 8"></path>
-                    <path d="M3.3 7 12 11.5 20.7 7"></path>
-                    <path d="M12 22V11.5"></path>
-                    <path d="M20 12.5V16a2 2 0 0 1-1.1 1.79l-6 3a2 2 0 0 1-1.8 0l-6-3A2 2 0 0 1 4 16v-3.5"></path>
-                </svg>
+      <div class="sidebar-content">
+        <div class="card-small card">
+          <div class="small-card-top">
+            <div class="card-small-img">
+              <img
+                src="./assets/15d2add9f18fc16388ceb80abb81b0a2e0f7949b.png"
+                alt=""
+              />
             </div>
+            <div class="small-card-content">
+              <div class="rating">
+                <p>Instructor Sarah Johnson</p>
+                <span><img src="./assets/star_icon.png" alt="" />4.9</span>
+              </div>
 
-            <h3>No Enrolled Courses Yet</h3>
+              <div class="card-title-div">
+                <h3 class="card-title">
+                  Advanced React & TypeScript Development
+                </h3>
+              </div>
+            </div>
+          </div>
 
-            <p>
-                Your learning journey starts here!<br>
-                Browse courses to get started.
-            </p>
-
-            <a href="./browse.html" class="btn-sidebar btn-dark">Browse Courses</a>
+          <div class="card-progress-wrapper">
+            <div class="progress">
+              <p><span id="progressText">65%</span> Complete</p>
+              <div class="progress-track">
+                <div class="progress-bar" data-progress="65"></div>
+              </div>
+            </div>
+            <button class="btn btn-light">View</button>
+          </div>
         </div>
-     </aside>
 
-     
-    <div class="paths-div">
-        <p class="paths">
-            <a href="./index.html" class="link-path">Home</a>
-            <span>&#x3e;</span>
-            <a href="./browse.html" class="link-path">Browse</a>
-            <span>&#x3e;</span>
-            <a href="./course.html" class="link-path">Development</a>
+        <div class="card-small card">
+          <div class="small-card-top">
+            <div class="card-small-img">
+              <img
+                src="./assets/15d2add9f18fc16388ceb80abb81b0a2e0f7949b.png"
+                alt=""
+              />
+            </div>
+            <div class="small-card-content">
+              <div class="rating">
+                <p>Lecturer Marilyn Mango</p>
+                <span><img src="./assets/star_icon.png" alt="" />4.9</span>
+              </div>
+
+              <div class="card-title-div">
+                <h3 class="card-title">
+                  Advanced React & TypeScript Development
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-progress-wrapper">
+            <div class="progress">
+              <p><span id="progressText">65%</span> Complete</p>
+              <div class="progress-track">
+                <div class="progress-bar" data-progress="65"></div>
+              </div>
+            </div>
+            <button class="btn btn-light">View</button>
+          </div>
+        </div>
+
+        <div class="card-small card">
+          <div class="small-card-top">
+            <div class="card-small-img">
+              <img
+                src="./assets/15d2add9f18fc16388ceb80abb81b0a2e0f7949b.png"
+                alt=""
+              />
+            </div>
+            <div class="small-card-content">
+              <div class="rating">
+                <p>Lecturer Marilyn Mango</p>
+                <span><img src="./assets/star_icon.png" alt="" />4.9</span>
+              </div>
+
+              <div class="card-title-div">
+                <h3 class="card-title">
+                  Advanced React & TypeScript Development
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-progress-wrapper">
+            <div class="progress">
+              <p><span id="progressText">65%</span> Complete</p>
+              <div class="progress-track">
+                <div class="progress-bar" data-progress="65"></div>
+              </div>
+            </div>
+            <button class="btn btn-light">View</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Empty state -->
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">
+          <svg
+            width="72"
+            height="72"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M21 8a2 2 0 0 0-1.1-1.79l-7-3.5a2 2 0 0 0-1.8 0l-7 3.5A2 2 0 0 0 3 8"
+            ></path>
+            <path d="M3.3 7 12 11.5 20.7 7"></path>
+            <path d="M12 22V11.5"></path>
+            <path
+              d="M20 12.5V16a2 2 0 0 1-1.1 1.79l-6 3a2 2 0 0 1-1.8 0l-6-3A2 2 0 0 1 4 16v-3.5"
+            ></path>
+          </svg>
+        </div>
+
+        <h3>No Enrolled Courses Yet</h3>
+
+        <p>
+          Your learning journey starts here!<br />
+          Browse courses to get started.
         </p>
+
+        <a href="./browse.html" class="btn-sidebar btn-dark">Browse Courses</a>
+      </div>
+    </aside>
+
+    <div class="paths-div">
+      <p class="paths">
+        <a href="./index.html" class="link-path">Home</a>
+        <span>&#x3e;</span>
+        <a href="./browse.html" class="link-path">Browse</a>
+        <span>&#x3e;</span>
+        <a href="./course.html" class="link-path">Development</a>
+      </p>
     </div>
 
     <main class="course-main">
-        <section class="course-main-wrapper">
-            <div class="course-left-wrapper">
-                <h1>Advanced React & TypeScript Development</h1>
-                <img src="./assets/card_pic_1.png" alt="" class="course-img">
-                <div class="course-info">
-                    <div class="course-datetime">
-                        <p>
-                            <span><img src="./assets/calendar_icon.png" alt=""></span>
-                            <span>12 weeks</span>
-                        </p>
+      <section class="course-main-wrapper">
+        <div class="course-left-wrapper">
+          <h1>Advanced React & TypeScript Development</h1>
+          <img src="./assets/card_pic_1.png" alt="" class="course-img" />
+          <div class="course-info">
+            <div class="course-datetime">
+              <p>
+                <span><img src="./assets/calendar_icon.png" alt="" /></span>
+                <span>12 weeks</span>
+              </p>
 
-                        <p>
-                            <span><img src="./assets/clock_icon.png" alt=""></span>
-                            <span>128 Hours</span>
-                        </p>
-                    </div>
-
-                    <div class="course-rating-category">
-                        <span><img src="./assets/star_icon.png" alt="">4.9</span>
-                        <button class="pill"><span class="pill-icon"><img src="./assets/code_icon.png" alt=""></span> Development</button>
-                    </div>
-                </div>
-
-                <div class="instructor-item course-page-instructor">
-                    <img src="./assets/marilyn-mango-pfp.png" alt="Marilyn Mango">
-                    <span>Marilyn Mango</span>
-                </div>
-
-                <div class="course-description-wrapper">
-                    <h3>Course Description</h3>
-                    <p>
-                        This course focuses on building scalable, production-level front-end applications using React and TypeScript. It covers advanced component architecture, strong typing strategies, state management patterns, and performance optimization techniques used in modern web products.
-                    </p>
-                    <p>
-                        Participants learn how to design reusable components, structure large codebases, and improve maintainability through strict typing and clear interfaces. The course also explores advanced hooks, custom hooks, API integration, error handling, and testing approaches commonly used in professional development environments.
-                    This course focuses on building scalable, production-level front-end applications using React and TypeScript. It covers advanced component architecture, strong typing strategies, state management patterns, and performance optimization techniques used in modern web products.
-                    </p>
-                </div>
+              <p>
+                <span><img src="./assets/clock_icon.png" alt="" /></span>
+                <span>128 Hours</span>
+              </p>
             </div>
 
-            <div class="course-right-wrapper">
-                <section class="enroll-section">
-                    <div class="selector-box">
+            <div class="course-rating-category">
+              <span><img src="./assets/star_icon.png" alt="" />4.9</span>
+              <button class="pill">
+                <span class="pill-icon"
+                  ><img src="./assets/code_icon.png" alt=""
+                /></span>
+                Development
+              </button>
+            </div>
+          </div>
 
-                    <!-- 1. Weekly Schedule -->
-                    <div class="dropdown-item open" data-step="1">
+          <div class="instructor-item course-page-instructor">
+            <img src="./assets/marilyn-mango-pfp.png" alt="Marilyn Mango" />
+            <span>Marilyn Mango</span>
+          </div>
+
+          <div class="course-description-wrapper">
+            <h3>Course Description</h3>
+            <p>
+              This course focuses on building scalable, production-level
+              front-end applications using React and TypeScript. It covers
+              advanced component architecture, strong typing strategies, state
+              management patterns, and performance optimization techniques used
+              in modern web products.
+            </p>
+            <p>
+              Participants learn how to design reusable components, structure
+              large codebases, and improve maintainability through strict typing
+              and clear interfaces. The course also explores advanced hooks,
+              custom hooks, API integration, error handling, and testing
+              approaches commonly used in professional development environments.
+              This course focuses on building scalable, production-level
+              front-end applications using React and TypeScript. It covers
+              advanced component architecture, strong typing strategies, state
+              management patterns, and performance optimization techniques used
+              in modern web products.
+            </p>
+          </div>
+        </div>
+
+        <div class="course-right-wrapper">
+          <!-- <section class="enroll-section">
+                    <div class="selector-box"> -->
+
+          <!-- 1. Weekly Schedule -->
+          <!-- <div class="dropdown-item open" data-step="1">
                         <button class="dropdown-header" type="button">
                         <div class="dropdown-title-wrap">
                             <span class="step-circle">1</span>
@@ -436,10 +538,10 @@
                             </button>
                         </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <!-- 2. Time Slot -->
-                    <div class="dropdown-item" data-step="2">
+          <!-- 2. Time Slot -->
+          <!-- <div class="dropdown-item" data-step="2">
                         <button class="dropdown-header" type="button">
                         <div class="dropdown-title-wrap">
                             <span class="step-circle">2</span>
@@ -472,10 +574,10 @@
                             </button>
                         </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <!-- 3. Session Type -->
-                    <div class="dropdown-item" data-step="3">
+          <!-- 3. Session Type -->
+          <!-- <div class="dropdown-item" data-step="3">
                         <button class="dropdown-header" type="button">
                         <div class="dropdown-title-wrap">
                             <span class="step-circle">3</span>
@@ -485,10 +587,10 @@
                         </button>
 
                         <div class="dropdown-content">
-                        <div class="options-grid session-grid" id="sessionOptions">
+                        <div class="options-grid session-grid" id="sessionOptions"> -->
 
-                            <!-- Online -->
-                            <button
+          <!-- Online -->
+          <!-- <button
                             class="option-card session-card"
                             type="button"
                             data-type="session"
@@ -501,10 +603,10 @@
                             <span class="option-sub">Google Meet</span>
                             <span class="session-price included">Included</span>
                             <span class="seat-text">50 Seats Available</span>
-                            </button>
+                            </button> -->
 
-                            <!-- In-Person -->
-                            <button
+          <!-- In-Person -->
+          <!-- <button
                             class="option-card session-card"
                             type="button"
                             data-type="session"
@@ -517,10 +619,10 @@
                             <span class="option-sub">Chavchavadze St.34</span>
                             <span class="session-price">+ $30</span>
                             <span class="seat-text warning">⚠ Only 3 Seats Remaining</span>
-                            </button>
+                            </button> -->
 
-                            <!-- Hybrid -->
-                            <button
+          <!-- Hybrid -->
+          <!-- <button
                             class="option-card session-card"
                             type="button"
                             data-type="session"
@@ -533,10 +635,10 @@
                             <span class="option-sub">@ Chavchavadze St.34</span>
                             <span class="session-price">+ $50</span>
                             <span class="seat-text">130 Seats Available</span>
-                            </button>
+                            </button> -->
 
-                            <!-- Example disabled / no seats -->
-                            <button
+          <!-- Example disabled / no seats -->
+          <!-- <button
                             class="option-card session-card disabled"
                             type="button"
                             disabled
@@ -555,10 +657,10 @@
                         </div>
                         </div>
                     </div>
-                    </div>
+                    </div> -->
 
-                    <!-- Price Summary -->
-                    <div class="price-box">
+          <!-- Price Summary -->
+          <!-- <div class="price-box">
                     <div class="price-top">
                         <div>
                         <h4>Total Price</h4>
@@ -578,10 +680,10 @@
                     </div>
 
                     <button class="enroll-btn" id="enrollBtn" disabled>Enroll Now</button>
-                    </div>
+                    </div> -->
 
-                    <!-- Profile Notice -->
-                    <div class="profile-alert">
+          <!-- Profile Notice -->
+          <!-- <div class="profile-alert">
                     <div class="alert-left">
                         <div class="alert-icon">⚠</div>
                         <div>
@@ -590,66 +692,197 @@
                         </div>
                     </div>
                     <button class="complete-btn" type="button">Complete →</button>
+                    <button class="complete-btn" type="button">Sign in →</button>
                     </div>
-                </section>
+                </section> -->
+
+          <!-- Enrolled not complete -->
+          <!-- <section class="enrolled-wrapper">
+            <div class="class-information">
+              <div class="status-badge completed">
+                <p>Enrolled</p>
+              </div>
+
+              <div class="class-schedule-info-wrapper">
+                <p class="class-schedule-row">
+                  <span>
+                    <img src="./assets/calendar_icon.png" alt="" />
+                  </span>
+                  Monday - Wednesday
+                </p>
+
+                <p class="class-schedule-row">
+                  <span>
+                    <img src="./assets/clock_icon.png" alt="" />
+                  </span>
+                  Evening 6:00 PM - 8:00 PM
+                </p>
+
+                <p class="class-schedule-row">
+                  <span>
+                    <img src="./assets/pc_icon.png" alt="" />
+                  </span>
+                  Online
+                </p>
+
+                <p class="class-schedule-row">
+                  <span>
+                    <img src="./assets/location_icon.png" alt="" />
+                  </span>
+                  Tbilisi, Chavchavadze St.30
+                </p>
+              </div>
+
+              <div class="card-progress-wrapper course-page-progress">
+                <div class="progress">
+                  <p><span id="progressText">65%</span> Complete</p>
+                  <div class="progress-track">
+                    <div class="progress-bar" data-progress="65"></div>
+                  </div>
+                </div>
+                <button class="btn btn-dark complete-course-btn">
+                  Complete Course
+                  <span><img src="./assets/check_icon.png" alt="" /></span>
+                </button>
+              </div>
             </div>
-        </section>
+          </section> -->
+
+          <!--Completed Course-->
+          <section class="enrolled-wrapper enrolled-completed">
+            <div class="class-information">
+              <div class="status-badge completed">
+                <p>Enrolled</p>
+              </div>
+
+              <div class="class-schedule-info-wrapper">
+                <p class="class-schedule-row">
+                  <span>
+                    <img src="./assets/calendar_icon.png" alt="" />
+                  </span>
+                  Monday - Wednesday
+                </p>
+
+                <p class="class-schedule-row">
+                  <span>
+                    <img src="./assets/clock_icon.png" alt="" />
+                  </span>
+                  Evening 6:00 PM - 8:00 PM
+                </p>
+
+                <p class="class-schedule-row">
+                  <span>
+                    <img src="./assets/pc_icon.png" alt="" />
+                  </span>
+                  Online
+                </p>
+
+                <p class="class-schedule-row">
+                  <span>
+                    <img src="./assets/location_icon.png" alt="" />
+                  </span>
+                  Tbilisi, Chavchavadze St.30
+                </p>
+              </div>
+
+              <div class="card-progress-wrapper course-page-progress">
+                <div class="progress">
+                  <p><span id="progressText">100%</span> Complete</p>
+                  <div class="progress-track">
+                    <div class="progress-bar" data-progress="100"></div>
+                  </div>
+                </div>
+                <button class="btn btn-dark complete-course-btn">
+                  Retake Course
+                  <span><img src="./assets/retry_icon.png" alt="" /></span>
+                </button>
+                <button class="btn btn-light rate-course-btn" id="openRateModal">Rate this Course</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
     </main>
 
-    
     <footer class="page-footer">
-        <div class="footer-wrapper">
-            <div class="footer-left">
-                <div class="footer-logo-div">
-                    <img class="logo-footer" src="./assets/logo.png" alt="">
-                    <h2>Bootcamp</h2>
-                </div>
+      <div class="footer-wrapper">
+        <div class="footer-left">
+          <div class="footer-logo-div">
+            <img class="logo-footer" src="./assets/logo.png" alt="" />
+            <h2>Bootcamp</h2>
+          </div>
 
-                <div class="footer-text">
-                    <p>your learning journey starts here!</p>
-                    <p>Browse courses to get started.</p>
-                </div>
+          <div class="footer-text">
+            <p>your learning journey starts here!</p>
+            <p>Browse courses to get started.</p>
+          </div>
 
-                <div class="footer-socials">
-                    <a href=""><img src="./assets/Facebook.png" alt=""></a>
-                    <a href=""><img src="./assets/Twitter.png" alt=""></a>
-                    <a href=""><img src="./assets/Instagram.png" alt=""></a>
-                    <a href=""><img src="./assets/LinkedIn.png" alt=""></a>
-                    <a href=""><img src="./assets/YouTube.png" alt=""></a>
-                </div>
-            </div>
-
-            <div class="footer-right">
-                <div class="footer-column">
-                    <h3 class="footer-column-title">Explore</h3>
-                    <a href="#">Enrolled Courses</a>
-                    <a href="">Browse Courses</a>
-                </div>
-
-                <div class="footer-column">
-                    <h3 class="footer-column-title">Account</h3>
-                    <a href="#">My Profile</a>
-                </div>
-
-                <div class="footer-column">
-                    <h3 class="footer-column-title">Contact</h3>
-                    <span><img src="./assets/mail_icon.png" alt="">contact@company.com</span>
-                    <span><img src="./assets/phone_icon.png" alt="">(+995) 555 111 222</span>
-                    <span><img src="./assets/location_icon.png" alt="">Aghmashenebeli St.115</span>
-                </div>
-            </div>
+          <div class="footer-socials">
+            <a href=""><img src="./assets/Facebook.png" alt="" /></a>
+            <a href=""><img src="./assets/Twitter.png" alt="" /></a>
+            <a href=""><img src="./assets/Instagram.png" alt="" /></a>
+            <a href=""><img src="./assets/LinkedIn.png" alt="" /></a>
+            <a href=""><img src="./assets/YouTube.png" alt="" /></a>
+          </div>
         </div>
 
-        <div class="footer-copyright">
-            <p>Copyright © 2026 Redberry International</p>
-            <div class="copyright-right">
-                <p>All Rights Reserved <span>|</span></p>
-                <a href="">Terms and Conditions <span>|</span></a>
-                <a href=""> Privacy Policy</a>
-            </div>
+        <div class="footer-right">
+          <div class="footer-column">
+            <h3 class="footer-column-title">Explore</h3>
+            <a href="#">Enrolled Courses</a>
+            <a href="">Browse Courses</a>
+          </div>
+
+          <div class="footer-column">
+            <h3 class="footer-column-title">Account</h3>
+            <a href="#">My Profile</a>
+          </div>
+
+          <div class="footer-column">
+            <h3 class="footer-column-title">Contact</h3>
+            <span
+              ><img
+                src="./assets/mail_icon.png"
+                alt=""
+              />contact@company.com</span
+            >
+            <span
+              ><img src="./assets/phone_icon.png" alt="" />(+995) 555 111
+              222</span
+            >
+            <span
+              ><img src="./assets/location_icon.png" alt="" />Aghmashenebeli
+              St.115</span
+            >
+          </div>
         </div>
+      </div>
+
+      <div class="footer-copyright">
+        <p>Copyright © 2026 Redberry International</p>
+        <div class="copyright-right">
+          <p>All Rights Reserved <span>|</span></p>
+          <a href="">Terms and Conditions <span>|</span></a>
+          <a href=""> Privacy Policy</a>
+        </div>
+      </div>
     </footer>
-    
+
+    <!-- Rate Course Modal -->
+    <div class="rate-overlay" id="rateOverlay">
+      <div class="rate-modal">
+        <button class="rate-close" id="closeRateModal">&times;</button>
+        <h3>Rate your experience</h3>
+        <div class="rate-stars" id="rateStars">
+          <img class="rate-star" src="./assets/Star-empty.png" data-index="1" alt="1 star" />
+          <img class="rate-star" src="./assets/Star-empty.png" data-index="2" alt="2 stars" />
+          <img class="rate-star" src="./assets/Star-empty.png" data-index="3" alt="3 stars" />
+          <img class="rate-star" src="./assets/Star-empty.png" data-index="4" alt="4 stars" />
+          <img class="rate-star" src="./assets/Star-empty.png" data-index="5" alt="5 stars" />
+        </div>
+      </div>
+    </div>
+
     <script src="./script.js"></script>
-</body>
+  </body>
 </html>
