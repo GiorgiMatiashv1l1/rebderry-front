@@ -2011,3 +2011,43 @@ main {
     width: 100%;
   }
 }
+
+.cards-small-wrapper{
+  position: relative;
+}
+
+.cards-small-wrapper.not-auth .cards-wrapper{
+  filter: blur(6px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.blur-overlay{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blur-box{
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 230px;
+  padding: 32px 56px 32px 56px;
+  border-radius: 12px;
+}
+
+.lock{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 90px;
+  background-color: #DDDBFA;
+  border-radius: 50%;
+}
